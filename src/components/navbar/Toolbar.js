@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import DrawerToggleButton from "./DrawerToggle";
 
 const toolbar = (props) => (
-  <header className="w-full fixed bg-white h-16 top-0 left-0 px-4">
+  <header className="w-full bg-white h-16 px-4">
     <nav className="flex items-center h-full justify-between container mx-auto">
       <div className="text-gray-800 text-xl">
         <Link to="/">LOGO</Link>

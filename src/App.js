@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import Footer from "./components/Footer";
 
 export default class App extends React.Component {
   state = {
@@ -43,34 +44,33 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="h-full mx-auto">
-          <Toolbar
-            drawerClickHandler={this.drawerToggleClickHandler}
-            siteRoutes={this.routes}
-          />
+        <Toolbar
+          drawerClickHandler={this.drawerToggleClickHandler}
+          siteRoutes={this.routes}
+        />
 
-          <SideDrawer
-            show={this.state.sideDrawerOpen}
-            closeDrawer={this.closeDrawer}
-            siteRoutes={this.routes}
-          />
+        <SideDrawer
+          show={this.state.sideDrawerOpen}
+          closeDrawer={this.closeDrawer}
+          siteRoutes={this.routes}
+        />
 
-          {this.state.sideDrawerOpen && (
-            <Backdrop click={this.backdropClickHandler} />
-          )}
-          <main className="mt-16 h-full">
-            <Switch>
-              {this.routes.map((routes, key) => (
-                <Route
-                  path={routes.path}
-                  component={routes.component}
-                  key={key}
-                />
-              ))}
-              <Route path="/" component={Home} />
-            </Switch>
-          </main>
-        </div>
+        {this.state.sideDrawerOpen && (
+          <Backdrop click={this.backdropClickHandler} />
+        )}
+        <main className="mb-auto flex-grow">
+          <Switch>
+            {this.routes.map((routes, key) => (
+              <Route
+                path={routes.path}
+                component={routes.component}
+                key={key}
+              />
+            ))}
+            <Route path="/" component={Home} />
+          </Switch>
+        </main>
+        <Footer />
       </Router>
     );
   }
