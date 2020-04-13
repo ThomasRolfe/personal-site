@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=l6nmysZKHFU
+https://tailwindcss.com/
+https://www.npmjs.com/package/@fortawesome/react-fontawesome
+https://www.npmjs.com/package/react-swipeable

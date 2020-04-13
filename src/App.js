@@ -43,7 +43,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="h-full">
+        <div className="h-full mx-auto">
           <Toolbar
             drawerClickHandler={this.drawerToggleClickHandler}
             siteRoutes={this.routes}
@@ -58,7 +58,7 @@ export default class App extends React.Component {
           {this.state.sideDrawerOpen && (
             <Backdrop click={this.backdropClickHandler} />
           )}
-          <main className="mt-12 h-full">
+          <main className="mt-16 h-full">
             <Switch>
               {this.routes.map((routes, key) => (
                 <Route
