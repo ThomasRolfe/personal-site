@@ -8,11 +8,21 @@ import Backdrop from "./components/Backdrop";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+import Blog from "./pages/Blog";
 
 export default class App extends React.Component {
   state = {
     sideDrawerOpen: false,
   };
+
+  routes = [
+    { routeName: "home", path: "/", component: Home },
+    { routeName: "about", path: "/about", component: About },
+    { routeName: "blog", path: "/blog", component: Blog },
+    { routeName: "portfolio", path: "/portfolio", component: Portfolio },
+    { routeName: "contact", path: "/contact", component: Contact },
+  ];
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -34,11 +44,15 @@ export default class App extends React.Component {
     return (
       <Router>
         <div className="h-full">
-          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <Toolbar
+            drawerClickHandler={this.drawerToggleClickHandler}
+            siteRoutes={this.routes}
+          />
 
           <SideDrawer
             show={this.state.sideDrawerOpen}
             closeDrawer={this.closeDrawer}
+            siteRoutes={this.routes}
           />
 
           {this.state.sideDrawerOpen && (
@@ -46,15 +60,14 @@ export default class App extends React.Component {
           )}
           <main className="mt-12 h-full">
             <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
+              {this.routes.map((routes, key) => (
+                <Route
+                  path={routes.path}
+                  component={routes.component}
+                  key={key}
+                />
+              ))}
+              <Route path="/" component={Home} />
             </Switch>
           </main>
         </div>

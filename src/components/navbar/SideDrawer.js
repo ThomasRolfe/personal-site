@@ -15,7 +15,17 @@ const sideDrawer = (props) => {
         }`}
       >
         <ul className="list-none flex flex-col">
-          <li>
+          {props.siteRoutes.map((route, key) => (
+            <li className="px-2" key={key}>
+              <Link
+                to={route.path}
+                className="hover:text-red-600 w-full h-full block p-5 capitalize"
+              >
+                {route.routeName}
+              </Link>
+            </li>
+          ))}
+          {/* <li>
             <Link
               to="/"
               className="hover:text-red-600 w-full h-full block p-5 "
@@ -38,7 +48,7 @@ const sideDrawer = (props) => {
             >
               Contact
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </Swipeable>

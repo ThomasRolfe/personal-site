@@ -13,21 +13,13 @@ const toolbar = (props) => (
       </div>
       <div className="text-gray-800 hidden md:block">
         <ul className="m-0 p-0 list-none flex">
-          <li className="px-2">
-            <Link to="/" className="hover:text-red-600">
-              Home
-            </Link>
-          </li>
-          <li className="px-2">
-            <Link to="/about" className="hover:text-red-600">
-              About
-            </Link>
-          </li>
-          <li className="px-2">
-            <Link to="/contact" className="hover:text-red-600">
-              Contact
-            </Link>
-          </li>
+          {props.siteRoutes.map((route, key) => (
+            <li className="px-2" key={key}>
+              <Link to={route.path} className="hover:text-red-600 capitalize">
+                {route.routeName}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
