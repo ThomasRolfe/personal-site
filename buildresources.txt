@@ -2,4 +2,8 @@ https://www.youtube.com/watch?v=l6nmysZKHFU
 https://tailwindcss.com/
 https://www.npmjs.com/package/@fortawesome/react-fontawesome
 https://www.npmjs.com/package/react-swipeable
+<<<<<<< HEAD
 https://dev.to/timosville/sticky-footer-using-tailwind-css-225p
+=======
+https://www.youtube.com/watch?v=Ca3ZkTV4RdM (animated iso svg)
+>>>>>>> 9d0e6f07f1279dfd99ac05ba56f40c70f3af32f7
