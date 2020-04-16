@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Logo } from "../placeholder_site_illustration.svg";
+import { ReactComponent as HeroAnimation } from "../hero-animation.svg";
 import ButtonCta from "../components/ButtonCta";
 import TechBanner from "../components/TechBanner";
 import BlogBanner from "../components/BlogBanner";
@@ -10,19 +10,35 @@ const Home = (props) => (
   <React.Fragment>
     <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2">
       <div className="left-text h-full flex flex-col justify-center">
-        <div className="text-center md:text-right">
-          <span className="block font-montbold font-extrabold text-6xl tracking-tighter leading-none">
-            <span className="text-mutedblue">Full</span> Stack
+        <div className="text-center md:text-left">
+          <span className="block font-montbold font-extrabold text-5xl text-offblack">
+            Tom Rolfe
           </span>
+
           <span className="block font-montbold font-extrabold text-6xl tracking-tighter leading-none">
-            Web Dev
+            <span className="text-mutedblue">Full Stack</span> Web Dev
           </span>
-          <ButtonCta className="mt-16">Learn more</ButtonCta>
+
+          <span className="w-16 h-1 mt-10 bg-mutedpurple inline-block"></span>
+
+          <p className="font-montbold font-medium my-10 text-lg max-w-md leading-relaxed">
+            Web app and website development, from planning and design to
+            production and deployment.
+          </p>
+
+          <div className="flex flex-col lg:flex-row mt-12 md:mt-16 w-10/12 lg:w-full justify-between lg:justify-start mx-auto lg-mx-0">
+            <ButtonCta className="" path="about">
+              Learn more
+            </ButtonCta>
+            <ButtonCta hollow className="mt-4 lg:mt-0 lg:ml-2" path="/contact">
+              Contact
+            </ButtonCta>
+          </div>
         </div>
       </div>
       <div className="right-image">
-        <div className="flex w-2/3 mx-auto">
-          <Logo />
+        <div className="flex mx-auto">
+          <HeroAnimation />
         </div>
       </div>
     </div>

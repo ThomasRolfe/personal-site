@@ -9,3 +9,62 @@ body {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+#site-planning {
+  animation-duration: 3s;
+  animation-name: animatePage;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  /* mix-blend-mode: screen; */
+}
+
+#site-code {
+  animation-duration: 3s;
+  animation-name: animatePage;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  /* mix-blend-mode: screen; */
+}
+
+#site-back {
+  animation-duration: 3s;
+  animation-name: animatePage;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+  /* mix-blend-mode: screen; */
+}
+
+#site-front {
+  animation-duration: 3s;
+  animation-name: animatePage;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.7s;
+  /* mix-blend-mode: screen; */
+}
+
+@keyframes animatePage {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+
+  to {
+    transform: translateX(-18px) translateY(18px);
+  }
+}
+
+@keyframes animateFront {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+
+  to {
+    transform: translateX(-5px) translateY(5px);
+  }
+}

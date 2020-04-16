@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DrawerToggleButton from "./DrawerToggle";
+import SiteLogo from "./SiteLogo";
 
 const toolbar = (props) => (
   <header className="w-full bg-white h-16 px-4">
     <nav className="flex items-center h-full justify-between container mx-auto">
-      <div className="text-gray-800 text-xl">
-        <Link to="/">LOGO</Link>
+      <div className="h-full ">
+        <SiteLogo />
       </div>
       <div>
         <DrawerToggleButton click={props.drawerClickHandler} />

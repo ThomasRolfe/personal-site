@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SideDrawer.css";
 import { Swipeable } from "react-swipeable";
+import SiteLogo from "./SiteLogo";
 
 const sideDrawer = (props) => {
   return (
@@ -15,9 +16,7 @@ const sideDrawer = (props) => {
         }`}
       >
         <div className="text-gray-800 text-xl px-2 pt-5">
-          <Link to="/" className="p-5">
-            LOGO
-          </Link>
+          <SiteLogo />
         </div>
         <ul className="list-none flex flex-col">
           {props.siteRoutes.map((route, key) => (

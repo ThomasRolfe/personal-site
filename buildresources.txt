@@ -2,3 +2,4 @@ https://www.youtube.com/watch?v=l6nmysZKHFU
 https://tailwindcss.com/
 https://www.npmjs.com/package/@fortawesome/react-fontawesome
 https://www.npmjs.com/package/react-swipeable
+https://dev.to/timosville/sticky-footer-using-tailwind-css-225p
