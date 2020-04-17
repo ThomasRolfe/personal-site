@@ -15,7 +15,7 @@ const sideDrawer = (props) => {
           props.show && "side-drawer-open"
         }`}
       >
-        <div className="text-gray-800  px-2 pt-5">
+        <div className="text-gray-800 w-9/12 px-2 pt-5">
           <SiteLogo className="w-1/2 pl-2" onClick={props.onClick} />
         </div>
         <ul className="list-none flex flex-col">

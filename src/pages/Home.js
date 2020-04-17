@@ -1,18 +1,21 @@
 import React from "react";
 import { ReactComponent as HeroAnimation } from "../hero-animation-2.svg";
 import ButtonCta from "../components/ButtonCta";
-import BlogBanner from "../components/BlogBanner";
-import PortfolioBanner from "../components/PortfolioBanner";
-import ContactForm from "../components/ContactForm";
+import BlogBanner from "../components/blocks/BlogBanner";
+import PortfolioBanner from "../components/blocks/PortfolioBanner";
+import ContactForm from "../components/blocks/ContactForm";
 import ScrollToRef from "../components/helpers/ScrollToRef";
 import OnVisible from "react-on-visible";
+import HomeBio from "../components/blocks/HomeBio";
+import ProcessBanner from "../components/blocks/ProcessBanner";
+import TechBanner from "../components/blocks/TechBanner";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
 
   return (
     <React.Fragment>
-      <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2 min-h-800px max-h-800">
+      <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2 min-h-800px max-h-800 px-4">
         <div className="left-text h-full flex flex-col justify-center">
           <OnVisible className="fadeUpPrepare">
             <div className="text-center md:text-left">
@@ -51,6 +54,7 @@ const Home = (props) => {
             </div>
           </OnVisible>
         </div>
+
         <div className="right-image slowFadeIn">
           <div className="flex w-full lg:h-full">
             <HeroAnimation />
@@ -58,37 +62,18 @@ const Home = (props) => {
         </div>
       </div>
 
-      <div className="w-full bg-gray-100">
-        <OnVisible className="fadeUpPrepare">
-          <div className="container mx-auto text-center px-4 pt-12">
-            <span className="font-montbold text-5xl font-semibold ">
-              Hi, I'm <span className="text-brightblue">Tom</span>
-            </span>
-            <div className="w-full md:w-4/6 xl:w-1/2 mx-auto mt-12">
-              <p className="text-lg md:text-xl font-montbold font-light">
-                I build custom full stack web applications and APIs and can also
-                provide consultation at every stage of the development
-                lifecycle:
-              </p>
-            </div>
-            <span className="w-16 h-1 mt-10 bg-mutedpurple inline-block"></span>
-          </div>
-        </OnVisible>
-      </div>
-
-      <div className="w-full bg-gray-100">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 px-4">
-          <div className="text-left">text about me</div>
-          <div className="text-center">face and socials</div>
+      <div className="w-full bg-gray-100 mt-12 pt-10">
+        <div className="container mx-auto px-4 overflow-auto">
+          <HomeBio />
+          <ProcessBanner />
         </div>
       </div>
 
-      <div
-        className="container mx-auto px-4"
-        style={{ height: "1500px" }}
-        ref={learnMoreRef}
-        id="learnMoreRef"
-      >
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 px-4">
+        <TechBanner />
+      </div>
+
+      <div className="container mx-auto px-4" ref={learnMoreRef}>
         <BlogBanner />
       </div>
 

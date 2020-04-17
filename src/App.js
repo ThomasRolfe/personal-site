@@ -70,7 +70,6 @@ export default class App extends React.Component {
                     <routes.component scrollCoord={this.state.scrollCoord} />
                   );
                 }}
-                // component={routes.component}
                 key={key}
                 scrollCoord={this.state.scrollCoord}
               />
