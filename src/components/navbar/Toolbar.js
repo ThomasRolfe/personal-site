@@ -18,7 +18,7 @@ const toolbar = (props) => (
             <li className="px-6" key={key}>
               <Link
                 to={route.path}
-                className="hover:text-red-600 capitalize font-montbold font-bold"
+                className="hover:text-mutedpurple capitalize font-montbold font-bold text-sm"
               >
                 {route.routeName}
               </Link>

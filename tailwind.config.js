@@ -150,6 +150,7 @@ module.exports = {
       "48": "12rem",
       "56": "14rem",
       "64": "16rem",
+      "800px": "800px",
     },
     backgroundColor: (theme) => theme("colors"),
     backgroundPosition: {
@@ -327,6 +328,7 @@ module.exports = {
     maxHeight: {
       full: "100%",
       screen: "100vh",
+      viewport: "1vmax",
     },
     maxWidth: (theme, { breakpoints }) => ({
       none: "none",

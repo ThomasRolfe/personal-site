@@ -15,15 +15,16 @@ const sideDrawer = (props) => {
           props.show && "side-drawer-open"
         }`}
       >
-        <div className="text-gray-800 text-xl px-2 pt-5">
-          <SiteLogo />
+        <div className="text-gray-800  px-2 pt-5">
+          <SiteLogo className="w-1/2 pl-2" onClick={props.onClick} />
         </div>
         <ul className="list-none flex flex-col">
           {props.siteRoutes.map((route, key) => (
             <li className="px-2" key={key}>
               <Link
                 to={route.path}
-                className="hover:text-red-600 w-full h-full block p-5 capitalize font-montbold font-bold"
+                className="hover:text-mutedpurple w-full h-full block p-5 capitalize font-montbold font-bold"
+                onClick={props.onClick}
               >
                 {route.routeName}
               </Link>

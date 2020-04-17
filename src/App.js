@@ -53,6 +53,7 @@ export default class App extends React.Component {
           show={this.state.sideDrawerOpen}
           closeDrawer={this.closeDrawer}
           siteRoutes={this.routes}
+          onClick={this.closeDrawer}
         />
 
         {this.state.sideDrawerOpen && (
