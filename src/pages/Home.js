@@ -86,7 +86,6 @@ const Home = (props) => {
       <div className="container mx-auto px-4">
         <ContactForm />
       </div>
-      <div style={{ backgroundColor: "red", height: "1500px" }}>test</div>
     </React.Fragment>
   );
 };
