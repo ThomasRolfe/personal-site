@@ -65,8 +65,14 @@ export default class App extends React.Component {
               <Route
                 exact
                 path={routes.path}
-                component={routes.component}
+                render={(props) => {
+                  return (
+                    <routes.component scrollCoord={this.state.scrollCoord} />
+                  );
+                }}
+                // component={routes.component}
                 key={key}
+                scrollCoord={this.state.scrollCoord}
               />
             ))}
             <Route path="/" component={Home} />
