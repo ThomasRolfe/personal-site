@@ -6,7 +6,7 @@ const ScrollToRef = (ref, yOffset = 0) => {
   }
 
   const yValue = ref.current.getBoundingClientRect().y;
-  window.scroll(0, yValue + yOffset);
+  window.scroll(0, yValue + yOffset, 4000);
 };
 
 export default ScrollToRef;

@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 const ButtonCta = (props) => {
   const styles = [
     "rounded-lg",
-    "shadow font-montbold",
-    "py-3 px-16",
+    "shadow-md",
+    "hover:shadow-lg",
+    "duration-200",
+    "ease-in-out",
+    "font-montbold",
     "border-solid",
     "border-2",
     "border-brightblue",
@@ -14,12 +17,21 @@ const ButtonCta = (props) => {
     ? styles.push("bg-white", "text-brightblue")
     : styles.push("bg-brightblue", "text-white");
 
+  if (props.path) {
+    return (
+      <Link to={props.path}>
+        {" "}
+        <button className={`${styles.join(" ")} ${props.className}`}>
+          {props.children}
+        </button>
+      </Link>
+    );
+  }
+
   return (
-    <Link to={props.path}>
-      <button className={`${styles.join(" ")} ${props.className}`}>
-        {props.children}
-      </button>
-    </Link>
+    <button className={`${styles.join(" ")} ${props.className}`}>
+      {props.children}
+    </button>
   );
 };
 

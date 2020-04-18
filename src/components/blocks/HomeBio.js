@@ -1,5 +1,6 @@
 import React from "react";
 import OnVisible from "react-on-visible";
+import LineSeparator from "../LineSeparator";
 
 const HomeBio = (props) => {
   return (
@@ -14,7 +15,7 @@ const HomeBio = (props) => {
             provide consultation for every stage of the development lifecycle:
           </p>
         </div>
-        <span className="w-16 h-1 mt-10 bg-mutedpurple inline-block"></span>
+        <LineSeparator className="bg-mutedpurple mt-10" />
       </div>
     </OnVisible>
   );

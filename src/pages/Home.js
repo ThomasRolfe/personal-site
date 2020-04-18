@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as HeroAnimation } from "../hero-animation-2.svg";
+import { ReactComponent as HeroAnimation } from "../hero-animation.svg";
 import ButtonCta from "../components/ButtonCta";
 import BlogBanner from "../components/blocks/BlogBanner";
 import PortfolioBanner from "../components/blocks/PortfolioBanner";
@@ -9,6 +9,7 @@ import OnVisible from "react-on-visible";
 import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
+import LineSeparator from "../components/LineSeparator";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
@@ -19,7 +20,7 @@ const Home = (props) => {
         <div className="left-text h-full flex flex-col justify-center">
           <OnVisible className="fadeUpPrepare">
             <div className="text-center md:text-left">
-              <span className="block font-montbold font-extrabold text-2xl md:text-3xl text-offblack">
+              <span className="block font-montbold font-semibold text-2xl md:text-3xl text-offblack">
                 Tom Rolfe
               </span>
 
@@ -38,14 +39,14 @@ const Home = (props) => {
                     ScrollToRef(learnMoreRef);
                   }}
                 >
-                  <ButtonCta className="w-full" path="#">
+                  <ButtonCta className="w-full no-focus py-3 px-16" path="#">
                     Learn more
                   </ButtonCta>
                 </div>
 
                 <ButtonCta
                   hollow
-                  className="mt-4 lg:mt-0 lg:ml-2 w-full"
+                  className="mt-4 lg:mt-0 lg:ml-2 w-full py-3 px-16"
                   path="/contact"
                 >
                   Contact
@@ -63,26 +64,25 @@ const Home = (props) => {
       </div>
 
       <div className="w-full bg-gray-100 mt-12 pt-10">
-        <div className="container mx-auto px-4 overflow-auto">
+        <div
+          className="container mx-auto px-4 overflow-auto"
+          ref={learnMoreRef}
+        >
           <HomeBio />
           <ProcessBanner />
         </div>
       </div>
 
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 px-4">
+      <div className="container mx-auto px-4 text-center py-8 lg:py-12">
         <TechBanner />
       </div>
 
-      <div className="container mx-auto px-4" ref={learnMoreRef}>
-        <BlogBanner />
+      <div className="container mx-auto px-4">
+        <PortfolioBanner className="mt-12" />
       </div>
 
-      <div className="w-full bg-gray-100">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 px-4">
-          <OnVisible className="fadeUpPrepare">
-            <PortfolioBanner />
-          </OnVisible>
-        </div>
+      <div className="container mx-auto px-4">
+        <BlogBanner />
       </div>
 
       <div className="container mx-auto px-4">
