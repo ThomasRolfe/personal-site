@@ -9,7 +9,6 @@ import OnVisible from "react-on-visible";
 import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
-import LineSeparator from "../components/LineSeparator";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
@@ -81,8 +80,10 @@ const Home = (props) => {
         <PortfolioBanner className="mt-12" />
       </div>
 
-      <div className="container mx-auto px-4">
-        <BlogBanner />
+      <div className="w-full bg-gray-100 mt-12 pt-10">
+        <div className="container mx-auto px-4 overflow-auto">
+          <BlogBanner className="mb-16" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4">

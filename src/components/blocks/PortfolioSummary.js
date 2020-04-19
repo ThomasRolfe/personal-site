@@ -11,14 +11,14 @@ const PortfolioSummary = (props) => {
         }`}
       >
         <div className="w-full lg:w-1/2">
-          <h3 className="font-montbold font-semibold text-2xl">
+          <h3 className="font-montbold font-semibold text-3xl">
             {props.title}
           </h3>
           <a
             target="_blank"
             href={props.url}
             rel="noopener noreferrer"
-            className="hover:text-mutedpurple text-brightblue my-2 block"
+            className="hover:text-brightblue text-mutedpurple my-2 block"
           >
             {props.url}
           </a>
@@ -32,8 +32,8 @@ const PortfolioSummary = (props) => {
           </p>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col justify-center ">
-          <div className="grid justify-center">
-            <img src={props.image} />
+          <div className="grid justify-center p-6">
+            <img src={props.image} className="shadow-xl rounded-md" alt="" />
           </div>
         </div>
       </div>

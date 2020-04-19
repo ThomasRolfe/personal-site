@@ -1,7 +1,6 @@
 import React from "react";
 import PortfolioSummary from "./PortfolioSummary";
 import LineSeparator from "../LineSeparator";
-import ButtonCta from "../ButtonCta";
 import { Link } from "react-router-dom";
 
 const Portfolios = [
@@ -67,13 +66,6 @@ const PortfolioBanner = (props) => (
       >
         See all
       </Link>
-      {/* <ButtonCta
-        hollow
-        className=" lg:mt-0 lg:ml-2 py-1 px-2 text-xs"
-        path="/portfolio"
-      >
-        
-      </ButtonCta> */}
     </div>
     <LineSeparator className="bg-mutedpurple mt-2 lg:mt-8 hidden sm:block" />
     <div className="">
