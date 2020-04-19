@@ -77,7 +77,7 @@ export default class App extends React.Component {
             <Route path="/" component={Home} />
           </Switch>
         </main>
-        <Footer />
+        <Footer routes={this.routes} />
       </Router>
     );
   }

@@ -11,13 +11,15 @@ const BlogPostPreview = (props) => {
         <h4 className="font-montbold font-semibold text-2xl mt-4">
           {props.title}
         </h4>
-        <span className="text-sm text-mutedblue mb-6 block">{props.date}</span>
+        <span className="text-sm text-mutedblue mb-6 block font-montbold">
+          {props.date}
+        </span>
         <p className="font-montbold text-sm md:text-base leading-relaxed">
           {props.previewText}
         </p>
         <Link
           to="/blog"
-          className="text-mutedpurple block my-6 hover:text-brightblue"
+          className="text-mutedpurple block my-6 hover:text-brightblue font-montbold"
         >
           Read more
         </Link>

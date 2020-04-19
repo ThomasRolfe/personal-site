@@ -3,7 +3,7 @@ import { ReactComponent as HeroAnimation } from "../hero-animation.svg";
 import ButtonCta from "../components/ButtonCta";
 import BlogBanner from "../components/blocks/BlogBanner";
 import PortfolioBanner from "../components/blocks/PortfolioBanner";
-import ContactForm from "../components/blocks/ContactForm";
+import ContactBanner from "../components/blocks/ContactBanner";
 import ScrollToRef from "../components/helpers/ScrollToRef";
 import OnVisible from "react-on-visible";
 import HomeBio from "../components/blocks/HomeBio";
@@ -87,7 +87,7 @@ const Home = (props) => {
       </div>
 
       <div className="container mx-auto px-4">
-        <ContactForm />
+        <ContactBanner />
       </div>
     </React.Fragment>
   );

@@ -11,8 +11,8 @@ const HomeBio = (props) => {
         </span>
         <div className="w-full md:w-4/6 xl:w-1/2 mx-auto mt-10">
           <p className="text-lg md:text-lg font-montbold font-light">
-            I build custom full stack web applications and APIs and can also
-            provide consultation for every stage of the development lifecycle:
+            I build custom full stack web applications and APIs and can provide
+            consultation for every stage of the development lifecycle:
           </p>
         </div>
         <LineSeparator className="bg-mutedpurple mt-10" />
