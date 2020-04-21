@@ -47,7 +47,14 @@ const Portfolios = [
   {
     title: "Personal Website - You're Here!",
     url: "www.example.com",
-    tags: ["React", "Laravel", "Tailwind"],
+    tags: [
+      "React",
+      "Laravel",
+      "TailwindCSS",
+      "NodeJS",
+      "Adobe Illustrator",
+      "Wordpress",
+    ],
     shortDescription: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
     sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
     sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 

@@ -39,7 +39,10 @@ const PortfolioSummary = (props) => {
             })}
           </div>
           <p className="font-montbold mt-8 mb-6 font-light">
-            {props.shortDescription}
+            {props.shortDescription}{" "}
+            <Link to="/" className="text-mutedpurple hover:text-brightblue">
+              Read more
+            </Link>
           </p>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col justify-center ">

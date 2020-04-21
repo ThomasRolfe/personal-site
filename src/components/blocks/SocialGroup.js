@@ -10,7 +10,7 @@ const socialIcons = [
     path: "https://www.facebook.com/TomRolfeWeb",
     icon: faFacebook,
     colour: "#4770D1",
-    padding: "p-2",
+    padding: "p-1",
   },
   {
     path: "https://github.com/ThomasRolfe",
