@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Portfolios = [
   {
-    title: "Dribble Home Page",
+    title: "VuStock - Warehouse Management",
     url: "www.example.com",
     tags: [
       "React",
@@ -25,7 +25,7 @@ const Portfolios = [
     image: "https://source.unsplash.com/random/500x250?sig=2",
   },
   {
-    title: "Dribble Home Page",
+    title: "MyMusicGrades - Online Guitar Tuition",
     url: "www.example.com",
     tags: ["React", "Laravel", "Tailwind"],
     shortDescription: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
@@ -35,7 +35,7 @@ const Portfolios = [
     image: "https://source.unsplash.com/random/500x250?sig=1",
   },
   {
-    title: "Dribble Home Page",
+    title: "LearnOffice - Microsoft Office Education",
     url: "www.example.com",
     tags: ["React", "Laravel", "Tailwind"],
     shortDescription: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
@@ -45,7 +45,7 @@ const Portfolios = [
     image: "https://source.unsplash.com/random/500x250?sig=3",
   },
   {
-    title: "Dribble Home Page",
+    title: "Personal Website - You're Here!",
     url: "www.example.com",
     tags: ["React", "Laravel", "Tailwind"],
     shortDescription: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
@@ -58,11 +58,11 @@ const Portfolios = [
 
 const PortfolioBanner = (props) => (
   <div className={` ${props.className} text-left`}>
-    <div className="flex flex-col sm:flex-row justify-between items-baseline">
+    <div className="flex flex-col sm:flex-row justify-start items-baseline">
       <h3 className="font-montbold text-medium text-5xl ">Portfolio</h3>
       <Link
         to="/portfolio"
-        className="border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue"
+        className="sm:ml-5 border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue"
       >
         See all
       </Link>

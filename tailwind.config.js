@@ -584,12 +584,14 @@ module.exports = {
     }),
     skew: {
       "-12": "-12deg",
+      "-10": "-10deg",
       "-6": "-6deg",
       "-3": "-3deg",
       "0": "0",
       "3": "3deg",
       "6": "6deg",
       "12": "12deg",
+      "10": "10deg",
     },
     transitionProperty: {
       none: "none",

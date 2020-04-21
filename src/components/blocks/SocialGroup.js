@@ -13,12 +13,6 @@ const socialIcons = [
     padding: "p-2",
   },
   {
-    path: "mailto:tomrolfemail@gmail.com",
-    icon: faEnvelope,
-    colour: "#FF0000",
-    padding: "p-4",
-  },
-  {
     path: "https://github.com/ThomasRolfe",
     icon: faGithub,
     colour: "#000000",
@@ -28,6 +22,12 @@ const socialIcons = [
     path: "https://www.linkedin.com/in/tom-rolfe-a4783861/",
     icon: faLinkedinIn,
     colour: "#2678B5",
+    padding: "p-4",
+  },
+  {
+    path: "mailto:tomrolfemail@gmail.com",
+    icon: faEnvelope,
+    colour: "#FF0000",
     padding: "p-4",
   },
 ];
@@ -42,12 +42,13 @@ const SocialGroup = (props) => {
             key={index}
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-3"
+            className="mx-3 hover:scale-105"
           >
             <FontAwesomeIcon
               icon={social.icon}
               size={props.size}
               style={{ color: social.colour }}
+              className="mx-3 transform hover:scale-125 duration-100 ease-in-out"
             />
           </a>
         );

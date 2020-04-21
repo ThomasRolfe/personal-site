@@ -18,13 +18,7 @@ const ContactBanner = (props) => {
           <SocialGroup size="2x" iconPadding="p-4" />
         </div>
       </OnVisible>
-
-      <OnVisible
-        className="fadeUpPrepare w-full md:w-1/2 md:px-10 "
-        percent={30}
-      >
-        <ContactForm />
-      </OnVisible>
+      <ContactForm />
     </div>
   );
 };

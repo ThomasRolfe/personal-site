@@ -1,32 +1,19 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProcessBannerCard = (props) => {
   return (
-    <div
-      className={`flex flex-col md:flex-row ${
-        (props.index + 1) % 2 === 0 && "lg:flex-row-reverse"
-      }`}
-    >
-      <div className="text-left w-full md:w-1/2  my-auto table">
-        <h3 className="font-montbold text-medium text-3xl mb-8">
-          {props.title}
-        </h3>
-        {props.description.map((paragraph, index) => {
-          return (
-            <p key={index} className="font-montbold mb-4 lg:text-lg font-light">
-              {paragraph}
-            </p>
-          );
-        })}
-      </div>
-      <div className="text-center w-full md:w-1/2 flex justify-center">
-        {/* placeholder image */}
-        <div
-          className="shadow bg-white m-4 hidden md:block"
-          style={{ height: "300px", width: "300px" }}
-        ></div>
-        {/* {props.illustration} */}
-      </div>
+    <div className="rounded shadow-lg hover:shadow-xl h-full p-8 bg-white transition ease-in-out duration-300 text-center">
+      <FontAwesomeIcon
+        icon={props.icon}
+        style={{ color: props.colour }}
+        size={props.size}
+        className=""
+      />
+      <h4 className="font-montbold font-medium my-4 text-xl">{props.title}</h4>
+      <p className="font-montbold font-light text-gray-700 my-4 text-sm leading-relaxed">
+        {props.description}
+      </p>
     </div>
   );
 };

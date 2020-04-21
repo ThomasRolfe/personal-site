@@ -25,7 +25,7 @@ const Footer = (props) => (
           </ul>
         </div>
         <div className="w-full">
-          <div className="w-2/3 text-center">
+          <div className="w-full md:w-2/3 text-center">
             <SocialGroup size="2x" iconPadding="p-4" />
           </div>
         </div>

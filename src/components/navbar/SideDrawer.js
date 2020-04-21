@@ -11,7 +11,7 @@ const sideDrawer = (props) => {
       onSwipedLeft={props.closeDrawer}
     >
       <nav
-        className={`h-full bg-white shadow-lg fixed top-0 left-0 w-48 z-50 side-drawer ${
+        className={`h-full bg-white shadow-lg fixed top-0 left-0 w-48 z-50 side-drawer overflow-scroll ${
           props.show && "side-drawer-open"
         }`}
       >

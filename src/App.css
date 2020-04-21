@@ -25,6 +25,15 @@ body {
   animation: fadeUp 1s forwards;
 }
 
+.fadeDownPrepare {
+  transform: translateY(-40px);
+  opacity: 0;
+}
+
+.fadeDownPrepare.visible {
+  animation: fadeDown 1.5s forwards;
+}
+
 .fadeIn {
   opacity: 0;
   animation: fadeIn 2s forwards;
@@ -44,6 +53,17 @@ body {
 @keyframes fadeUp {
   from {
     transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-40px);
     opacity: 0;
   }
   to {

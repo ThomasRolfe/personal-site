@@ -16,7 +16,7 @@ const Home = (props) => {
   return (
     <React.Fragment>
       <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2 min-h-800px max-h-800 px-4">
-        <div className="left-text h-full flex flex-col justify-center">
+        <div className="left-text h-full flex flex-col justify-center mb-4">
           <OnVisible className="fadeUpPrepare">
             <div className="text-center md:text-left">
               <span className="block font-montbold font-semibold text-2xl md:text-3xl text-offblack">
@@ -55,16 +55,18 @@ const Home = (props) => {
           </OnVisible>
         </div>
 
-        <div className="right-image slowFadeIn">
-          <div className="flex w-full lg:h-full">
-            <HeroAnimation />
-          </div>
+        <div className="right-image">
+          <OnVisible className="fadeDownPrepare">
+            <div className="flex w-full lg:h-full">
+              <HeroAnimation />
+            </div>
+          </OnVisible>
         </div>
       </div>
 
-      <div className="w-full bg-gray-100 mt-12 pt-10">
+      <div className="w-full bg-gray-100 mt-6 md:mt-12 pt-10 transform skew-y-6">
         <div
-          className="container mx-auto px-4 overflow-auto"
+          className="container mx-auto px-4 overflow-auto transform -skew-y-6"
           ref={learnMoreRef}
         >
           <HomeBio />
@@ -72,7 +74,7 @@ const Home = (props) => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 text-center py-8 lg:py-12">
+      <div className="container mx-auto px-4 text-center py-8 lg:py-24">
         <TechBanner />
       </div>
 
@@ -80,8 +82,8 @@ const Home = (props) => {
         <PortfolioBanner className="mt-12" />
       </div>
 
-      <div className="w-full bg-gray-100 mt-12 pt-10">
-        <div className="container mx-auto px-4 overflow-auto">
+      <div className="w-full bg-gray-100 mt-12 pt-10 transform skew-y-6">
+        <div className="container mx-auto px-4 overflow-auto transform -skew-y-6">
           <BlogBanner className="mb-16" />
         </div>
       </div>

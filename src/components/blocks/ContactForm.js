@@ -16,6 +16,7 @@ const ContactForm = (props) => (
          mb-8`}
         id="contactname"
         name="contactname"
+        type="text"
       />
       <label
         className="block text-gray-700 text-sm font-montbold mb-2"
@@ -29,6 +30,7 @@ const ContactForm = (props) => (
          mb-8`}
         id="emailaddress"
         name="emailaddress"
+        type="email"
       />
       <label
         className="block text-gray-700 text-sm font-montbold mb-2"
