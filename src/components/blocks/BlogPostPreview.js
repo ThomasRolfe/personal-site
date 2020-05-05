@@ -15,7 +15,7 @@ const BlogPostPreview = (props) => {
           className="font-montbold font-semibold text-2xl mt-4"
           dangerouslySetInnerHTML={{ __html: props.title.rendered }}
         ></h4>
-        <span className="text-sm text-mutedblue mb-6 block font-montbold">
+        <span className="text-sm text-mutedblue mb-6 mt-2 block font-montbold">
           {postDate.format("Mo MMM YYYY")}
         </span>
         <p

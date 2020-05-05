@@ -38,12 +38,17 @@ const Home = (props) => {
                     ScrollToRef(learnMoreRef);
                   }}
                 >
-                  <ButtonCta className="w-full no-focus py-3 px-16" path="#">
+                  <ButtonCta
+                    label="Learn More"
+                    className="w-full no-focus py-3 px-16"
+                    path="#"
+                  >
                     Learn more
                   </ButtonCta>
                 </div>
 
                 <ButtonCta
+                  label="Contact"
                   hollow
                   className="mt-4 lg:mt-0 lg:ml-2 w-full py-3 px-16"
                   path="/contact"
@@ -79,12 +84,20 @@ const Home = (props) => {
       </div>
 
       <div className="container mx-auto px-4">
-        <PortfolioBanner className="mt-12" />
+        <PortfolioBanner
+          className="mt-12"
+          tags={props.tags}
+          loading={props.loading}
+        />
       </div>
 
       <div className="w-full bg-gray-100 mt-12 pt-10 transform skew-y-6">
         <div className="container mx-auto px-4 overflow-auto transform -skew-y-6">
-          <BlogBanner className="mb-16" />
+          <BlogBanner
+            className="mb-16"
+            tags={props.tags}
+            loading={props.loading}
+          />
         </div>
       </div>
 

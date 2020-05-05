@@ -11,10 +11,14 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
+import PageLoading from "./components/PageLoading";
+import Axios from "axios";
 
 export default class App extends React.Component {
   state = {
     sideDrawerOpen: false,
+    loading: true,
+    tags: [],
   };
 
   routes = [
@@ -24,6 +28,18 @@ export default class App extends React.Component {
     { routeName: "portfolio", path: "/portfolio", component: Portfolio },
     { routeName: "contact", path: "/contact", component: Contact },
   ];
+
+  componentDidMount() {
+    Axios.get(`${process.env.REACT_APP_API_ROOT}tags`).then((response) => {
+      this.setState({
+        tags: response.data.reduce((obj, item) => {
+          obj[item.id] = item.name;
+          return obj;
+        }, {}),
+        loading: false,
+      });
+    });
+  }
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -67,7 +83,11 @@ export default class App extends React.Component {
                 path={routes.path}
                 render={(props) => {
                   return (
-                    <routes.component scrollCoord={this.state.scrollCoord} />
+                    <routes.component
+                      scrollCoord={this.state.scrollCoord}
+                      tags={this.state.tags}
+                      loading={this.state.loading}
+                    />
                   );
                 }}
                 key={key}

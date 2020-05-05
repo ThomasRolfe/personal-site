@@ -17,16 +17,16 @@ const PortfolioSummary = (props) => {
       >
         <div className="w-full lg:w-1/2">
           <h3 className="font-montbold font-semibold text-3xl">
-            {props.title}
+            {props.title.rendered}
           </h3>
           <a
             target="_blank"
             href={props.url}
             rel="noopener noreferrer"
-            className="hover:text-brightblue text-mutedpurple my-2 inline-block"
+            className="hover:text-brightblue text-mutedpurple my-2 inline-block font-montbold"
             title="Visit site"
           >
-            {props.url}
+            {props.site_link}
             <FontAwesomeIcon
               icon={faExternalLinkAlt}
               size={"1x"}
@@ -35,12 +35,23 @@ const PortfolioSummary = (props) => {
           </a>
           <div className="flex flex-row justify-start flex-wrap">
             {props.tags.map((tag, index) => {
-              return <TagPill key={index} name={tag} className="mr-2" />;
+              return (
+                <TagPill
+                  key={index}
+                  name={props.siteTags[tag]}
+                  className="mr-2"
+                />
+              );
             })}
           </div>
           <p className="font-montbold mt-8 mb-6 font-light">
-            {props.shortDescription}{" "}
-            <Link to="/" className="text-mutedpurple hover:text-brightblue">
+            <span
+              dangerouslySetInnerHTML={{ __html: props.excerpt.rendered }}
+            ></span>
+            <Link
+              to="/"
+              className="text-mutedpurple hover:text-brightblue block mt-4"
+            >
               Read more
             </Link>
           </p>
@@ -51,8 +62,12 @@ const PortfolioSummary = (props) => {
               evenRow ? "lg:pr-6" : "lg:pl-6"
             } `}
           >
-            <a href={props.url}>
-              <img src={props.image} className="shadow-xl rounded-md" alt="" />
+            <a href={props.site_link}>
+              <img
+                src={props.jetpack_featured_media_url}
+                className="shadow-xl rounded-md"
+                alt=""
+              />
             </a>
           </div>
         </div>

@@ -5,8 +5,8 @@ import OnVisible from "react-on-visible";
 
 const ContactBanner = (props) => {
   return (
-    <div className="flex flex-col md:flex-row my-6 lg:my-16">
-      <OnVisible className="fadeUpPrepare w-full md:w-1/2 text-center md:text-left">
+    <div className={`flex flex-col md:flex-row my-6 lg:my-16`}>
+      <OnVisible className="fadeUpPrepare w-full md:w-1/2 text-center md:text-left p-5">
         <h3 className="font-montbold text-5xl font-bold mb-5">
           Lets work together!
         </h3>
@@ -18,7 +18,7 @@ const ContactBanner = (props) => {
           <SocialGroup size="2x" iconPadding="p-4" />
         </div>
       </OnVisible>
-      <ContactForm />
+      <ContactForm className="w-full md:w-1/2" />
     </div>
   );
 };

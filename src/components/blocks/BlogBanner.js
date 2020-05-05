@@ -10,7 +10,7 @@ const BlogBanner = (props) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    Axios.get(process.env.REACT_APP_BLOG_API)
+    Axios.get(`${process.env.REACT_APP_API_ROOT}posts/?categories=1`)
       .then((response) => {
         setPosts(response.data);
         setIsLoading(false);
@@ -26,20 +26,19 @@ const BlogBanner = (props) => {
         <h3 className="font-montbold text-medium text-5xl ">Blog</h3>
         <Link
           to="/blog"
-          className="ml-5 border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue"
+          label="See all blog posts"
+          className="ml-5 border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue font-montbold"
         >
           See all
         </Link>
       </div>
       <LineSeparator className="bg-mutedpurple mt-2 lg:mt-8 hidden sm:block" />
       <div>
-        {isLoading || error ? (
-          <div className="font-montbold text-md font-bold">
-            Loading blog posts...
-          </div>
-        ) : (
-          <BlogCarousel posts={posts} />
+        {(props.loading || isLoading) && <div>Loading</div>}
+        {!props.loading && !isLoading && !error && (
+          <BlogCarousel posts={posts} tags={props.tags} />
         )}
+        {error && <div>Error occured</div>}
       </div>
     </div>
   );

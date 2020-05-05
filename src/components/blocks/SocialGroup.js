@@ -11,24 +11,28 @@ const socialIcons = [
     icon: faFacebook,
     colour: "#4770D1",
     padding: "p-1",
+    label: "Facebook"
   },
   {
     path: "https://github.com/ThomasRolfe",
     icon: faGithub,
     colour: "#000000",
     padding: "p-2",
+    label: "Github"
   },
   {
     path: "https://www.linkedin.com/in/tom-rolfe-a4783861/",
     icon: faLinkedinIn,
     colour: "#2678B5",
     padding: "p-4",
+    label: "Linkedin"
   },
   {
     path: "mailto:tomrolfemail@gmail.com",
     icon: faEnvelope,
     colour: "#FF0000",
     padding: "p-4",
+    label: "Email"
   },
 ];
 
@@ -43,6 +47,7 @@ const SocialGroup = (props) => {
             target="_blank"
             rel="noopener noreferrer"
             className="mx-3 hover:scale-105"
+            ariaLabel={social.label}
           >
             <FontAwesomeIcon
               icon={social.icon}

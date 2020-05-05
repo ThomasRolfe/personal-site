@@ -19,7 +19,7 @@ const ButtonCta = (props) => {
 
   if (props.path) {
     return (
-      <Link to={props.path}>
+      <Link to={props.path} ariaLabel={props.label}>
         {" "}
         <button className={`${styles.join(" ")} ${props.className}`}>
           {props.children}

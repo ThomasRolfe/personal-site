@@ -15,6 +15,7 @@ const Footer = (props) => (
                 <li className="mb-3 lg:float-left lg:mr-4" key={index}>
                   <Link
                     to={route.path}
+                    label={route.routeName}
                     className="capitalize font-montbold text-light text-sm text-gray-600"
                   >
                     {route.routeName}

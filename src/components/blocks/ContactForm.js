@@ -2,7 +2,7 @@ import React from "react";
 import ButtonCta from "../ButtonCta";
 
 const ContactForm = (props) => (
-  <div className="w-full p-5">
+  <div className={`w-full p-5   ${props.className}`}>
     <form>
       <label
         className="block text-gray-700 text-sm font-montbold mb-2"
