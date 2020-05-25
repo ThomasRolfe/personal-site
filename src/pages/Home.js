@@ -24,7 +24,7 @@ const Home = (props) => {
               </span>
 
               <span className="block font-montbold font-extrabold text-4xl md:text-6xl tracking-tighter leading-none">
-                <span className="text-brightblue">Full Stack</span> Web Dev
+                <span className="text-primary">Full Stack</span> Web Dev
               </span>
 
               <p className="font-montbold font-light my-10 text-lg max-w-md leading-relaxed mx-auto md:mx-0">
@@ -42,6 +42,7 @@ const Home = (props) => {
                     label="Learn More"
                     className="w-full no-focus py-3 px-16"
                     path="#"
+                    hollow
                   >
                     Learn more
                   </ButtonCta>
@@ -52,6 +53,7 @@ const Home = (props) => {
                   hollow
                   className="mt-4 lg:mt-0 lg:ml-2 w-full py-3 px-16"
                   path="/contact"
+                  secondary
                 >
                   Contact
                 </ButtonCta>
@@ -79,7 +81,7 @@ const Home = (props) => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 text-center py-8 lg:py-24">
+      <div className="container px-4 mx-auto text-center py-8 lg:py-24">
         <TechBanner />
       </div>
 

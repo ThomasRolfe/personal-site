@@ -27,12 +27,12 @@ const BlogBanner = (props) => {
         <Link
           to="/blog"
           label="See all blog posts"
-          className="ml-5 border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue font-montbold"
+          className="sm:ml-5 border rounded text-gray-500 px-2 hover:text-primary hover:shadow hover:border-primary font-montbold"
         >
           See all
         </Link>
       </div>
-      <LineSeparator className="bg-mutedpurple mt-2 lg:mt-8 hidden sm:block" />
+      <LineSeparator className="bg-secondary mt-2 lg:mt-8 hidden sm:block" />
       <div>
         {(props.loading || isLoading) && <div>Loading</div>}
         {!props.loading && !isLoading && !error && (

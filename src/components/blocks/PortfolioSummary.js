@@ -21,9 +21,9 @@ const PortfolioSummary = (props) => {
           </h3>
           <a
             target="_blank"
-            href={props.url}
+            href={props.site_link}
             rel="noopener noreferrer"
-            className="hover:text-brightblue text-mutedpurple my-2 inline-block font-montbold"
+            className="hover:text-primary text-secondary my-2 inline-block font-montbold"
             title="Visit site"
           >
             {props.site_link}
@@ -50,7 +50,7 @@ const PortfolioSummary = (props) => {
             ></span>
             <Link
               to="/"
-              className="text-mutedpurple hover:text-brightblue block mt-4"
+              className="text-secondary hover:text-primary block mt-4"
             >
               Read more
             </Link>
@@ -65,7 +65,7 @@ const PortfolioSummary = (props) => {
             <a href={props.site_link}>
               <img
                 src={props.jetpack_featured_media_url}
-                className="shadow-xl rounded-md"
+                className="shadow-xl rounded-lg"
                 alt=""
               />
             </a>

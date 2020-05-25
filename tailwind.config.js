@@ -16,8 +16,11 @@ module.exports = {
       white: "#fff",
       mutedblue: "#0EB1D2",
       brightblue: "#39D8FF",
+      darkpurple: "#452293",
       mutedpurple: "#9059E1",
       offblack: "#262626",
+      primary: "#00bce1",
+      secondary: "#2A62D1",
 
       gray: {
         100: "#f7fafc",

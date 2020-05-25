@@ -12,7 +12,7 @@ const ContactForm = (props) => (
       </label>
       <input
         className={`appearance-none border rounded w-full py-2 px-3 
-        text-gray-700  leading-tight focus:bg-white border focus:border-mutedpurple border-gray-300 focus:outline-none
+        text-gray-700  leading-tight focus:bg-white border focus:border-secondary border-gray-300 focus:outline-none
          mb-8`}
         id="contactname"
         name="contactname"
@@ -26,7 +26,7 @@ const ContactForm = (props) => (
       </label>
       <input
         className={`appearance-none border rounded w-full py-2 px-3 
-        text-gray-700  leading-tight focus:bg-white border focus:border-mutedpurple border-gray-300 focus:outline-none
+        text-gray-700  leading-tight focus:bg-white border focus:border-secondary border-gray-300 focus:outline-none
          mb-8`}
         id="emailaddress"
         name="emailaddress"
@@ -40,7 +40,7 @@ const ContactForm = (props) => (
       </label>
       <textarea
         className={`appearance-none border rounded w-full py-2 px-3 
-        text-gray-700  leading-tight focus:bg-white border focus:border-mutedpurple border-gray-300 focus:outline-none
+        text-gray-700  leading-tight focus:bg-white border focus:border-secondary border-gray-300 focus:outline-none
          mb-8`}
         id="message"
         name="message"

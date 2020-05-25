@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ButtonCta = (props) => {
+  const color = props.secondary ? "secondary" : "primary";
+
   const styles = [
     "rounded-lg",
     "shadow-md",
@@ -11,15 +13,16 @@ const ButtonCta = (props) => {
     "font-montbold",
     "border-solid",
     "border-2",
-    "border-brightblue",
+    `border-${color}`,
   ];
+
   props.hollow
-    ? styles.push("bg-white", "text-brightblue")
-    : styles.push("bg-brightblue", "text-white");
+    ? styles.push("bg-white", `text-${color}`)
+    : styles.push(`bg-${color}`, "text-white");
 
   if (props.path) {
     return (
-      <Link to={props.path} ariaLabel={props.label}>
+      <Link to={props.path} aria-label={props.label}>
         {" "}
         <button className={`${styles.join(" ")} ${props.className}`}>
           {props.children}

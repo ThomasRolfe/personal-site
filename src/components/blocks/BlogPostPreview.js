@@ -24,7 +24,7 @@ const BlogPostPreview = (props) => {
         ></p>
         <Link
           to={`/blog/${props.slug}`}
-          className="text-mutedpurple block my-6 hover:text-brightblue font-montbold"
+          className="text-secondary block my-6 hover:text-primary font-montbold"
         >
           Read more
         </Link>

@@ -1,15 +1,9 @@
 import React from "react";
 import OnVisible from "react-on-visible";
-
-const techImages = [
-  { path: "https://source.unsplash.com/random/200x70?sig=1" },
-  { path: "https://source.unsplash.com/random/200x70?sig=2" },
-  { path: "https://source.unsplash.com/random/200x70?sig=3" },
-  { path: "https://source.unsplash.com/random/200x70?sig=4" },
-  { path: "https://source.unsplash.com/random/200x70?sig=5" },
-  { path: "https://source.unsplash.com/random/200x70?sig=6" },
-  { path: "https://source.unsplash.com/random/200x70?sig=7" },
-];
+import { ReactComponent as LaravelLogo } from "../../assets/svg/laravel-logo.svg";
+import { ReactComponent as ReactLogo } from "../../assets/svg/react-logo-1.svg";
+import { ReactComponent as NextLogo } from "../../assets/svg/nextjs-logo.svg";
+import { ReactComponent as NodeLogo } from "../../assets/svg/nodejs-logo-1.svg";
 
 const TechBanner = (props) => (
   <div className="flex flex-col">
@@ -18,11 +12,18 @@ const TechBanner = (props) => (
         Using the latest technologies, libraries and tooling
       </h3>
     </OnVisible>
-    <div className="h-16 overflow-hidden">
-      <div className="flex justify-between ">
-        {techImages.map((image, index) => {
-          return <img className="px-3" src={image.path} />;
-        })}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-20 items-center">
+      <div className="p-4">
+        <LaravelLogo />
+      </div>
+      <div className="p-4">
+        <ReactLogo />
+      </div>
+      <div className="p-4">
+        <NextLogo />
+      </div>
+      <div className="p-4">
+        <NodeLogo />
       </div>
     </div>
   </div>

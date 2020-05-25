@@ -11,7 +11,6 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
-import PageLoading from "./components/PageLoading";
 import Axios from "axios";
 
 export default class App extends React.Component {

@@ -6,13 +6,17 @@ import Axios from "axios";
 
 const PortfolioBanner = (props) => {
   const [portfolios, setPortfolios] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_ROOT}posts/?categories=16`)
       .then((response) => {
         setPortfolios(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        setError(error);
       });
   }, []);
 
@@ -22,16 +26,17 @@ const PortfolioBanner = (props) => {
         <h3 className="font-montbold text-medium text-5xl ">Portfolio</h3>
         <Link
           to="/portfolio"
-          className="sm:ml-5 border rounded text-gray-500 px-2 hover:text-brightblue hover:shadow hover:border-brightblue font-montbold"
+          className="sm:ml-5 border rounded text-gray-500 px-2 hover:text-primary hover:shadow hover:border-primary font-montbold"
         >
           See all
         </Link>
       </div>
-      <LineSeparator className="bg-mutedpurple mt-2 lg:mt-8 hidden sm:block" />
+      <LineSeparator className="bg-secondary mt-2 lg:mt-8 hidden sm:block" />
       <div className="">
-        {props.loading && <div>Loading</div>}
-        {portfolios.length > 0 &&
-          !props.loading &&
+        {(props.loading || isLoading) && <div>Loading</div>}
+        {!props.loading &&
+          !isLoading &&
+          !error &&
           portfolios.map((portfolio, index) => {
             return (
               <PortfolioSummary
@@ -42,6 +47,7 @@ const PortfolioBanner = (props) => {
               />
             );
           })}
+        {error && <div>Error occured</div>}
       </div>
     </div>
   );

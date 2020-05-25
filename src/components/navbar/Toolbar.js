@@ -17,9 +17,9 @@ const toolbar = (props) => (
           {props.siteRoutes.map((route, key) => (
             <li className="px-6" key={key}>
               <Link
-                ariaLabel={route.routeName}
+                aria-label={route.routeName}
                 to={route.path}
-                className="hover:text-mutedpurple capitalize font-montbold font-bold text-sm"
+                className="hover:text-secondary capitalize font-montbold font-bold text-sm"
               >
                 {route.routeName}
               </Link>

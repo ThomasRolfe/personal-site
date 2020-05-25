@@ -22,9 +22,9 @@ const sideDrawer = (props) => {
           {props.siteRoutes.map((route, key) => (
             <li className="px-2" key={key}>
               <Link
-                ariaLabel={route.routeName}
+                aria-label={route.routeName}
                 to={route.path}
-                className="hover:text-mutedpurple w-full h-full block p-5 capitalize font-montbold font-bold"
+                className="hover:text-secondary w-full h-full block p-5 capitalize font-montbold font-bold"
                 onClick={props.onClick}
               >
                 {route.routeName}

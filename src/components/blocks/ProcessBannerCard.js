@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProcessBannerCard = (props) => {
   return (
-    <div className="rounded shadow-lg hover:shadow-xl h-full p-8 bg-white transition ease-in-out duration-300 text-center">
+    <div className="rounded-lg shadow-lg hover:shadow-xl h-full p-8 bg-white transition ease-in-out duration-300 text-center">
       <FontAwesomeIcon
         icon={props.icon}
         style={{ color: props.colour }}

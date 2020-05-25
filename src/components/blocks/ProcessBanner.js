@@ -13,7 +13,7 @@ const processes = [
     title: "Specification & Ideation",
     description: [
       `Translate your ideas into achievable technical specifications.
-    This process is crucial to ensure the right system is built for the right business objectives.`,
+    This process is crucial to ensure the right system is built for the right business objectives. `,
       `I draw from experience in various sectors including online retail, hospitality and 
       entertainment to help guide and iterate on ideas.`,
     ],
@@ -78,10 +78,11 @@ const ProcessBanner = (props) => {
   return (
     <div
       className={`${props.className} py-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10`}
+      style={{ gridAutoRows: "1fr" }}
     >
       {processes.map((process, index) => (
-        <OnVisible className="fadeUpPrepare">
-          <ProcessBannerCard {...process} key={index} index={index} />
+        <OnVisible className="fadeUpPrepare" key={index}>
+          <ProcessBannerCard {...process} index={index} />
         </OnVisible>
       ))}
     </div>
