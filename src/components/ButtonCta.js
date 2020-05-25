@@ -11,6 +11,7 @@ const ButtonCta = (props) => {
     "duration-200",
     "ease-in-out",
     "font-montbold",
+    "font-medium",
     "border-solid",
     "border-2",
     `border-${color}`,
@@ -24,7 +25,10 @@ const ButtonCta = (props) => {
     return (
       <Link to={props.path} aria-label={props.label}>
         {" "}
-        <button className={`${styles.join(" ")} ${props.className}`}>
+        <button
+          className={`${styles.join(" ")} ${props.className}`}
+          onClick={props.onClick}
+        >
           {props.children}
         </button>
       </Link>
@@ -32,7 +36,10 @@ const ButtonCta = (props) => {
   }
 
   return (
-    <button className={`${styles.join(" ")} ${props.className}`}>
+    <button
+      className={`${styles.join(" ")} ${props.className}`}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
