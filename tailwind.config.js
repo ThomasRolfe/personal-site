@@ -20,7 +20,8 @@ module.exports = {
       mutedpurple: "#9059E1",
       offblack: "#262626",
       primary: "#00bce1",
-      secondary: "#2A62D1",
+      // secondary: "#2A62D1",
+      secondary: "#7510f7",
 
       gray: {
         100: "#f7fafc",

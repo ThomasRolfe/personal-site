@@ -1,6 +1,5 @@
 import React from "react";
 import OnVisible from "react-on-visible";
-import LineSeparator from "../LineSeparator";
 
 const HomeBio = (props) => {
   return (
@@ -15,7 +14,7 @@ const HomeBio = (props) => {
             consultation for every stage of the development lifecycle:
           </p>
         </div>
-        <LineSeparator className="bg-secondary mt-10" />
+        {/* <LineSeparator className="bg-secondary mt-10" /> */}
       </div>
     </OnVisible>
   );

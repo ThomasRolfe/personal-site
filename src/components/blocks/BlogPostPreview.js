@@ -9,7 +9,7 @@ const BlogPostPreview = (props) => {
   return (
     <OnVisible className="fadeUpPrepare">
       <div
-        className={`shadow-xl rounded-md bg-white py-6 px-8 h-full ${props.className}`}
+        className={`shadow-md rounded-md bg-white py-6 px-8 h-full ${props.className}`}
       >
         <h4
           className="font-montbold font-semibold text-2xl mt-4"

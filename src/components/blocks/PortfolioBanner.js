@@ -37,16 +37,20 @@ const PortfolioBanner = (props) => {
         {!props.loading &&
           !isLoading &&
           !error &&
-          portfolios.map((portfolio, index) => {
-            return (
-              <PortfolioSummary
-                key={index}
-                index={index}
-                {...portfolio}
-                siteTags={props.tags}
-              />
-            );
-          })}
+          portfolios
+            .filter((portfolio, index) => {
+              return index < 4;
+            })
+            .map((portfolio, index) => {
+              return (
+                <PortfolioSummary
+                  key={index}
+                  index={index}
+                  {...portfolio}
+                  siteTags={props.tags}
+                />
+              );
+            })}
         {error && <div>Error occured</div>}
       </div>
     </div>

@@ -14,11 +14,9 @@ const processes = [
     description: [
       `Translate your ideas into achievable technical specifications.
     This process is crucial to ensure the right system is built for the right business objectives. `,
-      `I draw from experience in various sectors including online retail, hospitality and 
-      entertainment to help guide and iterate on ideas.`,
     ],
     icon: faClipboardList,
-    colour: "#FFAF26",
+    colour: "#7510f7",
     size: "3x",
   },
   {
@@ -28,7 +26,7 @@ const processes = [
       This affords quick iteration and feedback on design ideas before jumping into code.`,
     ],
     icon: faPencilRuler,
-    colour: "#3CC132",
+    colour: "#7510f7",
     size: "3x",
   },
   {
@@ -39,7 +37,7 @@ const processes = [
       and always happy to learn a new language.`,
     ],
     icon: faLaptopCode,
-    colour: "#9059E1",
+    colour: "#7510f7",
     size: "3x",
   },
   {
@@ -49,7 +47,7 @@ const processes = [
       which can be designed based on the requirements, project budget and expansion potential.`,
     ],
     icon: faCloudUploadAlt,
-    colour: "#39D8FF",
+    colour: "#7510f7",
     size: "3x",
   },
   {
@@ -59,7 +57,7 @@ const processes = [
       The same process can be undertaken for swift upgrades to grow your business.`,
     ],
     icon: faLightbulb,
-    colour: "#FFD500",
+    colour: "#7510f7",
     size: "3x",
   },
   {
@@ -69,7 +67,7 @@ const processes = [
       The level and frequency of support can be tailored to your business needs.`,
     ],
     icon: faWrench,
-    colour: "#D40000",
+    colour: "#7510f7",
     size: "3x",
   },
 ];

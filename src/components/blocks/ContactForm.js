@@ -144,6 +144,7 @@ const ContactForm = (props) => {
         <ButtonCta
           className="w-full md:w-1/2 no-focus py-1 px-6 lg:py-3 lg:px-16"
           hollow
+          secondary
         >
           Submit
         </ButtonCta>
