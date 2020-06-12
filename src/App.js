@@ -10,8 +10,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Footer from "./components/Footer";
-import Axios from "axios";
 import Tags from "./dataFetch/Tags";
 import Portfolios from "./dataFetch/Portfolios";
 import Blogs from "./dataFetch/BlogPosts";
@@ -22,16 +22,28 @@ export default class App extends React.Component {
     sideDrawerOpen: false,
     loading: true,
     tags: [],
+    blogTags: [],
     portfolios: [],
     blogs: [],
   };
 
   routes = [
-    { routeName: "home", path: "/", component: Home },
-    { routeName: "about", path: "/about", component: About },
-    { routeName: "blog", path: "/blog", component: Blog },
-    { routeName: "portfolio", path: "/portfolio", component: Portfolio },
-    { routeName: "contact", path: "/contact", component: Contact },
+    { routeName: "home", path: "/", component: Home, menu: true },
+    { routeName: "about", path: "/about", component: About, menu: true },
+    {
+      routeName: "blogpost",
+      path: "/blog/:slug",
+      component: BlogPost,
+      menu: false,
+    },
+    { routeName: "blog", path: "/blog", component: Blog, menu: true },
+    {
+      routeName: "portfolio",
+      path: "/portfolio",
+      component: Portfolio,
+      menu: true,
+    },
+    { routeName: "contact", path: "/contact", component: Contact, menu: true },
   ];
 
   componentDidMount() {
@@ -41,6 +53,15 @@ export default class App extends React.Component {
           obj[item.id] = item.name;
           return obj;
         }, {}),
+        blogTags: Array.from(
+          new Set(
+            responses[2].data
+              .map((blogs) => {
+                return blogs.tags;
+              })
+              .flat()
+          )
+        ),
         portfolios: responses[1].data,
         blogs: responses[2].data,
         loading: false,
@@ -95,6 +116,7 @@ export default class App extends React.Component {
                         scrollCoord={this.state.scrollCoord}
                         tags={this.state.tags}
                         loading={this.state.loading}
+                        {...props}
                       />
                     );
                   }}

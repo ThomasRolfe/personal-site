@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { ReactComponent as HeroAnimation } from "../hero-animation.svg";
 import ButtonCta from "../components/ButtonCta";
 import BlogBanner from "../components/blocks/BlogBanner";

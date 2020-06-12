@@ -10,19 +10,23 @@ const Footer = (props) => (
         <div className="w-full mb-4">
           <span className="font-montbold font-bold mb-2">Site map</span>
           <ul>
-            {props.routes.map((route, index) => {
-              return (
-                <li className="mb-3 lg:float-left lg:mr-4" key={index}>
-                  <Link
-                    to={route.path}
-                    label={route.routeName}
-                    className="capitalize font-montbold text-light text-sm text-gray-600"
-                  >
-                    {route.routeName}
-                  </Link>
-                </li>
-              );
-            })}
+            {props.routes
+              .filter((route) => {
+                return route.menu;
+              })
+              .map((route, index) => {
+                return (
+                  <li className="mb-3 lg:float-left lg:mr-4" key={index}>
+                    <Link
+                      to={route.path}
+                      label={route.routeName}
+                      className="capitalize font-montbold text-light text-sm text-gray-600"
+                    >
+                      {route.routeName}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div className="w-full">

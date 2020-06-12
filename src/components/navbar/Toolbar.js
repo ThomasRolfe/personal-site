@@ -14,17 +14,21 @@ const toolbar = (props) => (
       </div>
       <div className="text-gray-800 hidden md:block">
         <ul className="m-0 p-0 list-none flex">
-          {props.siteRoutes.map((route, key) => (
-            <li className="px-6" key={key}>
-              <Link
-                aria-label={route.routeName}
-                to={route.path}
-                className="hover:text-secondary capitalize font-montbold font-bold text-sm"
-              >
-                {route.routeName}
-              </Link>
-            </li>
-          ))}
+          {props.siteRoutes
+            .filter((route) => {
+              return route.menu;
+            })
+            .map((route, key) => (
+              <li className="px-6" key={key}>
+                <Link
+                  aria-label={route.routeName}
+                  to={route.path}
+                  className="hover:text-secondary capitalize font-montbold font-bold text-sm"
+                >
+                  {route.routeName}
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </nav>

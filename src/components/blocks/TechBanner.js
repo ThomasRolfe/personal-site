@@ -1,9 +1,9 @@
 import React from "react";
 import OnVisible from "react-on-visible";
-import { ReactComponent as LaravelLogo } from "../../assets/svg/laravel-logo.svg";
-import { ReactComponent as ReactLogo } from "../../assets/svg/react-logo-1.svg";
-import { ReactComponent as NextLogo } from "../../assets/svg/nextjs-logo.svg";
-import { ReactComponent as NodeLogo } from "../../assets/svg/nodejs-logo-1.svg";
+// import { ReactComponent as LaravelLogo } from "../../assets/svg/laravel-logo.svg";
+// import { ReactComponent as ReactLogo } from "../../assets/svg/react-logo-1.svg";
+// import { ReactComponent as NextLogo } from "../../assets/svg/nextjs-logo.svg";
+// import { ReactComponent as NodeLogo } from "../../assets/svg/nodejs-logo-1.svg";
 
 const TechBanner = (props) => (
   <div className="flex flex-col">

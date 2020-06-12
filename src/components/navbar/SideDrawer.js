@@ -19,18 +19,22 @@ const sideDrawer = (props) => {
           <SiteLogo className="w-1/2 pl-2" onClick={props.onClick} />
         </div>
         <ul className="list-none flex flex-col">
-          {props.siteRoutes.map((route, key) => (
-            <li className="px-2" key={key}>
-              <Link
-                aria-label={route.routeName}
-                to={route.path}
-                className="hover:text-secondary w-full h-full block p-5 capitalize font-montbold font-bold"
-                onClick={props.onClick}
-              >
-                {route.routeName}
-              </Link>
-            </li>
-          ))}
+          {props.siteRoutes
+            .filter((route) => {
+              return route.menu;
+            })
+            .map((route, key) => (
+              <li className="px-2" key={key}>
+                <Link
+                  aria-label={route.routeName}
+                  to={route.path}
+                  className="hover:text-secondary w-full h-full block p-5 capitalize font-montbold font-bold"
+                  onClick={props.onClick}
+                >
+                  {route.routeName}
+                </Link>
+              </li>
+            ))}
         </ul>
       </nav>
     </Swipeable>
