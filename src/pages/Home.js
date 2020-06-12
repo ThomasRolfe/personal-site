@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactComponent as HeroAnimation } from "../hero-animation.svg";
 import ButtonCta from "../components/ButtonCta";
 import BlogBanner from "../components/blocks/BlogBanner";
@@ -86,11 +86,7 @@ const Home = (props) => {
       </div>
 
       <div className="container mx-auto px-4">
-        <PortfolioBanner
-          className="mt-12"
-          tags={props.tags}
-          loading={props.loading}
-        />
+        <PortfolioBanner className="mt-12" />
       </div>
 
       <div className="w-full bg-gray-100 mt-12 pt-10 transform skew-y-6">

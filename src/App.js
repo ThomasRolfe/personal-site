@@ -12,12 +12,18 @@ import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 import Axios from "axios";
+import Tags from "./dataFetch/Tags";
+import Portfolios from "./dataFetch/Portfolios";
+import Blogs from "./dataFetch/BlogPosts";
+import { DataProvider } from "./context/DataContext";
 
 export default class App extends React.Component {
   state = {
     sideDrawerOpen: false,
     loading: true,
     tags: [],
+    portfolios: [],
+    blogs: [],
   };
 
   routes = [
@@ -29,12 +35,14 @@ export default class App extends React.Component {
   ];
 
   componentDidMount() {
-    Axios.get(`${process.env.REACT_APP_API_ROOT}tags`).then((response) => {
+    Promise.all([Tags(), Portfolios(), Blogs()]).then((responses) => {
       this.setState({
-        tags: response.data.reduce((obj, item) => {
+        tags: responses[0].data.reduce((obj, item) => {
           obj[item.id] = item.name;
           return obj;
         }, {}),
+        portfolios: responses[1].data,
+        blogs: responses[2].data,
         loading: false,
       });
     });
@@ -58,46 +66,48 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Toolbar
-          drawerClickHandler={this.drawerToggleClickHandler}
-          siteRoutes={this.routes}
-        />
+      <DataProvider value={this.state}>
+        <Router>
+          <Toolbar
+            drawerClickHandler={this.drawerToggleClickHandler}
+            siteRoutes={this.routes}
+          />
 
-        <SideDrawer
-          show={this.state.sideDrawerOpen}
-          closeDrawer={this.closeDrawer}
-          siteRoutes={this.routes}
-          onClick={this.closeDrawer}
-        />
+          <SideDrawer
+            show={this.state.sideDrawerOpen}
+            closeDrawer={this.closeDrawer}
+            siteRoutes={this.routes}
+            onClick={this.closeDrawer}
+          />
 
-        {this.state.sideDrawerOpen && (
-          <Backdrop click={this.backdropClickHandler} />
-        )}
-        <main className="mb-auto flex-grow">
-          <Switch>
-            {this.routes.map((routes, key) => (
-              <Route
-                exact
-                path={routes.path}
-                render={(props) => {
-                  return (
-                    <routes.component
-                      scrollCoord={this.state.scrollCoord}
-                      tags={this.state.tags}
-                      loading={this.state.loading}
-                    />
-                  );
-                }}
-                key={key}
-                scrollCoord={this.state.scrollCoord}
-              />
-            ))}
-            <Route path="/" component={Home} />
-          </Switch>
-        </main>
-        <Footer routes={this.routes} />
-      </Router>
+          {this.state.sideDrawerOpen && (
+            <Backdrop click={this.backdropClickHandler} />
+          )}
+          <main className="mb-auto flex-grow">
+            <Switch>
+              {this.routes.map((routes, key) => (
+                <Route
+                  exact
+                  path={routes.path}
+                  render={(props) => {
+                    return (
+                      <routes.component
+                        scrollCoord={this.state.scrollCoord}
+                        tags={this.state.tags}
+                        loading={this.state.loading}
+                      />
+                    );
+                  }}
+                  key={key}
+                  scrollCoord={this.state.scrollCoord}
+                />
+              ))}
+              <Route path="/" component={Home} />
+            </Switch>
+          </main>
+          <Footer routes={this.routes} />
+        </Router>
+      </DataProvider>
     );
   }
 }

@@ -12,18 +12,22 @@ const TechBanner = (props) => (
         Using the latest technologies, libraries and tooling
       </h3>
     </OnVisible>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-20 items-center">
+    <div className="grid grid-cols-2 md:grid-cols-4 md:gap-20 items-center">
       <div className="p-4">
-        <LaravelLogo />
+        <img src="/images/laravel.jpg" alt="Laravel logo" />
+        {/* <LaravelLogo /> */}
       </div>
       <div className="p-4">
-        <ReactLogo />
+        <img src="/images/react.jpg" alt="React logo" />
+        {/* <ReactLogo /> */}
       </div>
       <div className="p-4">
-        <NextLogo />
+        <img src="/images/nextjs.jpg" alt="Nextjs logo" />
+        {/* <NextLogo /> */}
       </div>
       <div className="p-4">
-        <NodeLogo />
+        <img src="/images/node.jpg" alt="Nodejs logo" />
+        {/* <NodeLogo /> */}
       </div>
     </div>
   </div>

@@ -1,24 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import PortfolioSummary from "./PortfolioSummary";
 import LineSeparator from "../LineSeparator";
 import { Link } from "react-router-dom";
-import Axios from "axios";
+import DataContext from "../../context/DataContext";
 
 const PortfolioBanner = (props) => {
-  const [portfolios, setPortfolios] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_ROOT}posts/?categories=16`)
-      .then((response) => {
-        setPortfolios(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  }, []);
+  const data = useContext(DataContext);
 
   return (
     <div className={` ${props.className} text-left`}>
@@ -33,11 +20,10 @@ const PortfolioBanner = (props) => {
       </div>
       <LineSeparator className="bg-secondary mt-2 lg:mt-8 hidden sm:block" />
       <div className="">
-        {(props.loading || isLoading) && <div>Loading</div>}
-        {!props.loading &&
-          !isLoading &&
-          !error &&
-          portfolios
+        {data.loading && <div>Loading</div>}
+
+        {!data.error &&
+          data.portfolios
             .filter((portfolio, index) => {
               return index < 4;
             })
@@ -47,11 +33,11 @@ const PortfolioBanner = (props) => {
                   key={index}
                   index={index}
                   {...portfolio}
-                  siteTags={props.tags}
+                  siteTags={data.tags}
                 />
               );
             })}
-        {error && <div>Error occured</div>}
+        {data.error && <div>Error occured</div>}
       </div>
     </div>
   );

@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import LineSeparator from "../components/LineSeparator";
-import { Link } from "react-router-dom";
-import Axios from "axios";
 import PortfolioSummary from "../components/blocks/PortfolioSummary";
+import DataContext from "../context/DataContext";
 
 const Portfolio = (props) => {
-  const [portfolios, setPortfolios] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_ROOT}posts/?categories=16`)
-      .then((response) => {
-        setPortfolios(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  }, []);
+  const data = useContext(DataContext);
 
   return (
     <div className="container py-8 mx-auto px-4 w-full">
@@ -27,21 +13,20 @@ const Portfolio = (props) => {
         <LineSeparator className="bg-secondary mt-10" />
       </div>
       <div className="">
-        {(props.loading || isLoading) && <div>Loading</div>}
-        {!props.loading &&
-          !isLoading &&
-          !error &&
-          portfolios.map((portfolio, index) => {
+        {data.loading && <div>Loading</div>}
+        {!data.loading &&
+          !data.error &&
+          data.portfolios.map((portfolio, index) => {
             return (
               <PortfolioSummary
                 key={index}
                 index={index}
                 {...portfolio}
-                siteTags={props.tags}
+                siteTags={data.tags}
               />
             );
           })}
-        {error && <div>Error occured</div>}
+        {data.error && <div>Error occured</div>}
       </div>
     </div>
   );
