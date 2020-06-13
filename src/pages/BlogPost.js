@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import DataContext from "../context/DataContext";
 import LineSeparator from "../components/LineSeparator";
+import Loading from "../components/helpers/Loading";
 
 const BlogPost = (props) => {
   const data = useContext(DataContext);
@@ -15,7 +16,7 @@ const BlogPost = (props) => {
   }, [data.blogs, props.match.params.slug]);
 
   if (data.loading || !blogPost) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
 
   return (

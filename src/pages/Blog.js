@@ -4,6 +4,7 @@ import BlogPostPreview from "../components/blocks/BlogPostPreview";
 import DataContext from "../context/DataContext";
 import TagPill from "../components/TagPill";
 import ButtonCta from "../components/ButtonCta";
+import Loading from "../components/helpers/Loading";
 
 const Blog = (props) => {
   const [filterName, setFilterName] = useState("");

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import LineSeparator from "../components/LineSeparator";
 import PortfolioSummary from "../components/blocks/PortfolioSummary";
 import DataContext from "../context/DataContext";
+import Loading from "../components/helpers/Loading";
 
 const Portfolio = (props) => {
   const data = useContext(DataContext);
@@ -13,7 +14,7 @@ const Portfolio = (props) => {
         <LineSeparator className="bg-secondary mt-10" />
       </div>
       <div className="">
-        {data.loading && <div>Loading</div>}
+        {data.loading && <Loading />}
         {!data.loading &&
           !data.error &&
           data.portfolios.map((portfolio, index) => {
