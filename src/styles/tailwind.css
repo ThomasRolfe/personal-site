@@ -31,10 +31,15 @@
   @apply text-secondary;
 }
 
+pre {
+  @apply inline-block;
+}
+
 .wp-block-code {
   @apply p-6;
   overflow: auto;
-  text-align: center;
-  background-color: #eaeaea;
+  /* text-align: center; */
+  background-color: #f7fafc;
+  border: 1px solid #e8e8e8;
 }
 @tailwind utilities;

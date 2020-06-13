@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import LineSeparator from "../components/LineSeparator";
 import PortfolioSummary from "../components/blocks/PortfolioSummary";
 import DataContext from "../context/DataContext";
-import Loading from "../components/helpers/Loading";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const Portfolio = (props) => {
   const data = useContext(DataContext);
+
+  if (data.error) {
+    return <Error />;
+  }
 
   return (
     <div className="container py-8 mx-auto px-4 w-full">
@@ -16,7 +21,6 @@ const Portfolio = (props) => {
       <div className="">
         {data.loading && <Loading />}
         {!data.loading &&
-          !data.error &&
           data.portfolios.map((portfolio, index) => {
             return (
               <PortfolioSummary
@@ -27,7 +31,6 @@ const Portfolio = (props) => {
               />
             );
           })}
-        {data.error && <div>Error occured</div>}
       </div>
     </div>
   );

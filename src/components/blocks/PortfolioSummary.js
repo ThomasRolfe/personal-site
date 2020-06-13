@@ -4,6 +4,7 @@ import OnVisible from "react-on-visible";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ButtonCta from "../ButtonCta";
 
 const PortfolioSummary = (props) => {
   const evenRow = (props.index + 1) % 2 === 0;
@@ -49,10 +50,17 @@ const PortfolioSummary = (props) => {
               dangerouslySetInnerHTML={{ __html: props.excerpt.rendered }}
             ></span>
             <Link
-              to="/"
+              to={`/portfolio/${props.slug}`}
               className="text-secondary hover:text-primary block mt-4"
             >
-              Read more
+              <ButtonCta
+                secondary
+                label="Read More"
+                className=" no-focus py-2 px-6"
+                hollow
+              >
+                Read more
+              </ButtonCta>
             </Link>
           </p>
         </div>

@@ -16,6 +16,7 @@ import Tags from "./dataFetch/Tags";
 import Portfolios from "./dataFetch/Portfolios";
 import Blogs from "./dataFetch/BlogPosts";
 import { DataProvider } from "./context/DataContext";
+import ScrollToTop from "./components/helpers/ScrollToTop";
 
 export default class App extends React.Component {
   state = {
@@ -89,6 +90,7 @@ export default class App extends React.Component {
     return (
       <DataProvider value={this.state}>
         <Router>
+          <ScrollToTop />
           <Toolbar
             drawerClickHandler={this.drawerToggleClickHandler}
             siteRoutes={this.routes}

@@ -646,11 +646,16 @@ video {
   color: #7510f7;
 }
 
+pre {
+  display: inline-block;
+}
+
 .wp-block-code {
   padding: 1.5rem;
   overflow: auto;
-  text-align: center;
-  background-color: #eaeaea;
+  /* text-align: center; */
+  background-color: #f7fafc;
+  border: 1px solid #e8e8e8;
 }
 
 .sr-only {

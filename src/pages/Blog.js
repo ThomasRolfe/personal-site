@@ -4,7 +4,7 @@ import BlogPostPreview from "../components/blocks/BlogPostPreview";
 import DataContext from "../context/DataContext";
 import TagPill from "../components/TagPill";
 import ButtonCta from "../components/ButtonCta";
-import Loading from "../components/helpers/Loading";
+import Error from "../components/Error";
 
 const Blog = (props) => {
   const [filterName, setFilterName] = useState("");
@@ -22,10 +22,17 @@ const Blog = (props) => {
     }
   };
 
+  if (data.error) {
+    return <Error />;
+  }
+
   return (
-    <div className="container py-8 mx-auto text-center px-4 w-full">
-      <h1 className="font-montbold text-4xl font-semibold ">Blog</h1>
-      <LineSeparator className="bg-secondary mt-10" />
+    <div className="container py-8 mx-auto px-4 w-full">
+      <div className="text-center">
+        <h1 className="font-montbold text-4xl font-semibold ">Blog</h1>
+        <LineSeparator className="bg-secondary mt-10" />
+      </div>
+
       <div className="py-6 text-center md:text-left">
         <ButtonCta
           className="no-focus py-1 px-6 lg:py-2 lg:px-16"

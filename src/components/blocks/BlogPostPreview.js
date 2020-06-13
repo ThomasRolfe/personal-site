@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import OnVisible from "react-on-visible";
 import moment from "moment";
+import ButtonCta from "../ButtonCta";
 
 const BlogPostPreview = (props) => {
   const postDate = moment(props.date);
@@ -26,7 +27,9 @@ const BlogPostPreview = (props) => {
           to={`/blog/${props.slug}`}
           className="text-secondary block my-6 hover:text-primary font-montbold"
         >
-          Read more
+          <ButtonCta label="Read More" className=" no-focus py-2 px-6" hollow>
+            Read more
+          </ButtonCta>
         </Link>
       </div>
     </OnVisible>

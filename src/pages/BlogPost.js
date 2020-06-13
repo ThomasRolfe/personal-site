@@ -1,7 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import DataContext from "../context/DataContext";
 import LineSeparator from "../components/LineSeparator";
-import Loading from "../components/helpers/Loading";
+import Loading from "../components/Loading";
+
+const correctMarks = (text) => {
+  text = text.replace(/&lt;mark>/g, "<strong style='background-color:yellow'>");
+  text = text.replace(/&lt;\/mark>/g, "</strong>");
+  console.log(text);
+  return text;
+};
 
 const BlogPost = (props) => {
   const data = useContext(DataContext);
@@ -30,7 +37,9 @@ const BlogPost = (props) => {
       </div>
       <div
         className="py-8 cms-content"
-        dangerouslySetInnerHTML={{ __html: blogPost.content.rendered }}
+        dangerouslySetInnerHTML={{
+          __html: correctMarks(blogPost.content.rendered),
+        }}
       ></div>
     </div>
   );
