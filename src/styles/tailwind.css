@@ -1,5 +1,40 @@
+@tailwind base;
+@tailwind components;
 
-@tailwind  base;
-@tailwind  components;
+/* Wordpress cms content styling */
+.cms-content {
+  @apply text-black font-montbold;
+}
 
-@tailwind  utilities;
+.cms-content > h2 {
+  @apply font-semibold text-2xl;
+}
+
+.cms-content > h3 {
+  @apply font-semibold text-xl mb-6 mt-12;
+}
+
+.cms-content > p {
+  @apply py-6 text-lg font-light;
+}
+
+.cms-content > code {
+  line-height: 2;
+}
+
+.cms-content > ul {
+  list-style-type: disc;
+  @apply px-2;
+}
+
+.cms-content > p > a {
+  @apply text-primary;
+}
+
+.wp-block-code {
+  @apply p-6;
+  overflow: auto;
+  text-align: center;
+  background-color: #eaeaea;
+}
+@tailwind utilities;

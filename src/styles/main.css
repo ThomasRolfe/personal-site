@@ -606,6 +606,53 @@ video {
   }
 }
 
+/* Wordpress cms content styling */
+
+.cms-content {
+  color: #000;
+  font-family: Montserrat, sans-serif;
+}
+
+.cms-content > h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.cms-content > h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+
+.cms-content > p {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+.cms-content > code {
+  line-height: 2;
+}
+
+.cms-content > ul {
+  list-style-type: disc;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.cms-content > p > a {
+  color: #00bce1;
+}
+
+.wp-block-code {
+  padding: 1.5rem;
+  overflow: auto;
+  text-align: center;
+  background-color: #eaeaea;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

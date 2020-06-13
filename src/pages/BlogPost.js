@@ -28,7 +28,7 @@ const BlogPost = (props) => {
         <LineSeparator className="bg-secondary mt-10" />
       </div>
       <div
-        className="py-8"
+        className="py-8 cms-content"
         dangerouslySetInnerHTML={{ __html: blogPost.content.rendered }}
       ></div>
     </div>

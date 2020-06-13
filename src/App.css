@@ -1,3 +1,5 @@
+@tailwind base;
+
 html,
 body {
   height: 100%;
@@ -167,6 +169,6 @@ body {
   }
 }
 
-h2 {
-  font-weight: bold;
-}
+@tailwind components;
+
+@tailwind utilities;
