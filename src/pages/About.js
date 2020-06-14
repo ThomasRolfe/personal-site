@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LineSeparator from "../components/LineSeparator";
 import ButtonCta from "../components/ButtonCta";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+import BreadCrumbs from "../components/blocks/Breadcrumbs";
 
 const About = (props) => {
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
+
+  useEffect(() => {
+    setBreadcrumbs([
+      {
+        text: "Home",
+        path: "/",
+      },
+      {
+        text: "About",
+        path: "/about",
+      },
+    ]);
+  }, []);
+
   return (
     <React.Fragment>
-      <div className="container py-8 mx-auto text-center px-4 w-full md:w-4/6">
+      <div className="container py-8 mx-auto px-4 w-full text-center">
+        <BreadCrumbs crumbs={breadcrumbs} />
         <h1 className="font-montbold text-4xl font-semibold ">About me</h1>
         <LineSeparator className="bg-secondary mt-10" />
         <p className="text-lg md:text-lg font-montbold font-light my-8">

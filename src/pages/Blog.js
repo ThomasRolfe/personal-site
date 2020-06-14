@@ -1,16 +1,34 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import LineSeparator from "../components/LineSeparator";
 import BlogPostPreview from "../components/blocks/BlogPostPreview";
 import DataContext from "../context/DataContext";
 import TagPill from "../components/TagPill";
 import ButtonCta from "../components/ButtonCta";
 import Error from "../components/Error";
+import BreadCrumbs from "../components/blocks/Breadcrumbs";
 
 const Blog = (props) => {
   const [filterName, setFilterName] = useState("");
   const [filterIndex, setFilterIndex] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
   const data = useContext(DataContext);
+
+  useEffect(() => {
+    if (!data.blogs) {
+      return;
+    }
+    setBreadcrumbs([
+      {
+        text: "Home",
+        path: "/",
+      },
+      {
+        text: "Blog",
+        path: "/blog",
+      },
+    ]);
+  }, [data.blogs]);
 
   const toggleFilter = (tagIndex, tagName) => {
     if (tagName === filterName) {
@@ -28,6 +46,7 @@ const Blog = (props) => {
 
   return (
     <div className="container py-8 mx-auto px-4 w-full">
+      <BreadCrumbs crumbs={breadcrumbs} />
       <div className="text-center">
         <h1 className="font-montbold text-4xl font-semibold ">Blog</h1>
         <LineSeparator className="bg-secondary mt-10" />

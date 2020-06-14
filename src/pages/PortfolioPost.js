@@ -10,8 +10,7 @@ import BreadCrumbs from "../components/blocks/Breadcrumbs";
 const PortfolioPost = (props) => {
   const data = useContext(DataContext);
   const [portfolioPost, setPortfolioPost] = useState();
-
-  console.log(data);
+  const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   useEffect(() => {
     setPortfolioPost(
@@ -21,12 +20,33 @@ const PortfolioPost = (props) => {
     );
   }, [data.portfolios, props.match.params.slug]);
 
+  useEffect(() => {
+    if (!portfolioPost) {
+      return;
+    }
+    setBreadcrumbs([
+      {
+        text: "Home",
+        path: "/",
+      },
+      {
+        text: "Portfolio",
+        path: "/portfolio",
+      },
+      {
+        text: portfolioPost.slug,
+        path: `/portfolio/${portfolioPost.slug}`,
+      },
+    ]);
+  }, [portfolioPost]);
+
   if (data.loading || !portfolioPost) {
     return <Loading />;
   }
 
   return (
     <div className="container py-8 mx-auto px-4 w-full">
+      <BreadCrumbs crumbs={breadcrumbs} />
       <div className="text-center">
         <h1
           className="font-montbold text-4xl font-semibold"
