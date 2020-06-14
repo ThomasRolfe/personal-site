@@ -4,9 +4,8 @@ import LineSeparator from "../components/LineSeparator";
 import Loading from "../components/Loading";
 
 const correctMarks = (text) => {
-  text = text.replace(/&lt;mark>/g, "<strong style='background-color:yellow'>");
-  text = text.replace(/&lt;\/mark>/g, "</strong>");
-  console.log(text);
+  text = text.replace(/&lt;mark>/g, "<span style='background-color:yellow'>");
+  text = text.replace(/&lt;\/mark>/g, "</span>");
   return text;
 };
 

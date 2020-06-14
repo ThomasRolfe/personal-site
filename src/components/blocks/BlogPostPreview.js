@@ -10,7 +10,7 @@ const BlogPostPreview = (props) => {
   return (
     <OnVisible className="fadeUpPrepare">
       <div
-        className={`shadow-md rounded-md bg-white py-6 px-8 h-full ${props.className}`}
+        className={`shadow-md rounded-md bg-white py-6 px-8 h-full flex flex-col ${props.className}`}
       >
         <h4
           className="font-montbold font-semibold text-2xl mt-4"
@@ -20,12 +20,12 @@ const BlogPostPreview = (props) => {
           {postDate.format("Mo MMM YYYY")}
         </span>
         <p
-          className="font-montbold text-sm md:text-base leading-relaxed"
+          className="font-montbold text-sm md:text-base leading-relaxed mb-6"
           dangerouslySetInnerHTML={{ __html: props.excerpt.rendered }}
         ></p>
         <Link
           to={`/blog/${props.slug}`}
-          className="text-secondary block my-6 hover:text-primary font-montbold"
+          className="text-secondary block my-6 hover:text-primary font-montbold mt-auto"
         >
           <ButtonCta label="Read More" className=" no-focus py-2 px-6" hollow>
             Read more

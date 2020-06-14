@@ -14,6 +14,7 @@ import BlogPost from "./pages/BlogPost";
 import Footer from "./components/Footer";
 import Tags from "./dataFetch/Tags";
 import Portfolios from "./dataFetch/Portfolios";
+import PortfolioPost from "./pages/PortfolioPost";
 import Blogs from "./dataFetch/BlogPosts";
 import { DataProvider } from "./context/DataContext";
 import ScrollToTop from "./components/helpers/ScrollToTop";
@@ -38,6 +39,12 @@ export default class App extends React.Component {
       menu: false,
     },
     { routeName: "blog", path: "/blog", component: Blog, menu: true },
+    {
+      routeName: "portfoliopost",
+      path: "/portfolio/:slug",
+      component: PortfolioPost,
+      menu: false,
+    },
     {
       routeName: "portfolio",
       path: "/portfolio",

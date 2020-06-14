@@ -2,9 +2,9 @@ import React from "react";
 import TagPill from "../TagPill";
 import OnVisible from "react-on-visible";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ButtonCta from "../ButtonCta";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const PortfolioSummary = (props) => {
   const evenRow = (props.index + 1) % 2 === 0;
@@ -28,12 +28,25 @@ const PortfolioSummary = (props) => {
             title="Visit site"
           >
             {props.site_link}
-            <FontAwesomeIcon
-              icon={faExternalLinkAlt}
-              size={"1x"}
-              className="mx-3"
-            />
           </a>
+          {props.github_link && (
+            <>
+              <span className="font-bold px-2"> | </span>
+              <a
+                href={props.github_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" hover:scale-105"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  size={"lg"}
+                  style={{ color: "black" }}
+                  className=" transform hover:scale-125 duration-100 ease-in-out"
+                />
+              </a>
+            </>
+          )}
           <div className="flex flex-row justify-start flex-wrap">
             {props.tags.map((tag, index) => {
               return (
