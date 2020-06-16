@@ -102,6 +102,7 @@ export default class App extends React.Component {
           <meta charSet="utf-8" />
           <title>Tom Rolfe | Full Stack Web Developer</title>
           <link rel="canonical" href="http://thomasrolfe.co.uk" />
+          <meta name="theme-color" content="#7510f7" />
         </Helmet>
         <Router>
           <ScrollToTop />
