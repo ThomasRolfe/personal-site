@@ -9,12 +9,18 @@ import OnVisible from "react-on-visible";
 import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
+import { Helmet } from "react-helmet";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
 
   return (
     <React.Fragment>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Tom Rolfe | Full Stack Web Developer</title>
+      </Helmet>
+
       <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2 min-h-800px max-h-800 px-4">
         <div className="left-text h-full flex flex-col justify-center mb-4">
           <OnVisible className="fadeUpPrepare">

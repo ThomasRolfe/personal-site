@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Page404 from "./pages/Page404";
 import Footer from "./components/Footer";
 import Tags from "./dataFetch/Tags";
 import Portfolios from "./dataFetch/Portfolios";
@@ -18,6 +19,7 @@ import PortfolioPost from "./pages/PortfolioPost";
 import Blogs from "./dataFetch/BlogPosts";
 import { DataProvider } from "./context/DataContext";
 import ScrollToTop from "./components/helpers/ScrollToTop";
+import { Helmet } from "react-helmet";
 
 export default class App extends React.Component {
   state = {
@@ -96,6 +98,11 @@ export default class App extends React.Component {
   render() {
     return (
       <DataProvider value={this.state}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Tom Rolfe | Full Stack Web Developer</title>
+          <link rel="canonical" href="http://thomasrolfe.co.uk" />
+        </Helmet>
         <Router>
           <ScrollToTop />
           <Toolbar
@@ -133,7 +140,8 @@ export default class App extends React.Component {
                   scrollCoord={this.state.scrollCoord}
                 />
               ))}
-              <Route path="/" component={Home} />
+              <Route path="/" exact component={Home} />
+              <Route component={Page404} />
             </Switch>
           </main>
           <Footer routes={this.routes} />

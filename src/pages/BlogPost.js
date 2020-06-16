@@ -3,6 +3,8 @@ import DataContext from "../context/DataContext";
 import LineSeparator from "../components/LineSeparator";
 import Loading from "../components/Loading";
 import BreadCrumbs from "../components/blocks/Breadcrumbs";
+import { Helmet } from "react-helmet";
+import Error from "../components/Error";
 
 const correctMarks = (text) => {
   text = text.replace(/&lt;mark>/g, "<span style='background-color:yellow'>");
@@ -43,27 +45,39 @@ const BlogPost = (props) => {
     ]);
   }, [blogPost]);
 
+  if (!data.loading && !blogPost) {
+    return <Error />;
+  }
+
   if (data.loading || !blogPost) {
     return <Loading />;
   }
 
   return (
-    <div className="container py-8 mx-auto px-4 w-full">
-      <BreadCrumbs crumbs={breadcrumbs} />
-      <div className="text-center">
-        <h1
-          className="font-montbold text-4xl font-semibold"
-          dangerouslySetInnerHTML={{ __html: blogPost.title.rendered }}
-        ></h1>
-        <LineSeparator className="bg-secondary mt-10" />
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title dangerouslySetInnerHTML={{ __html: blogPost.title.rendered }}>
+          {`${blogPost.title.rendered} | Tom Rolfe | Full Stack Web Developer`}
+        </title>
+      </Helmet>
+      <div className="container py-8 mx-auto px-4 w-full">
+        <BreadCrumbs crumbs={breadcrumbs} />
+        <div className="text-center">
+          <h1
+            className="font-montbold text-4xl font-semibold"
+            dangerouslySetInnerHTML={{ __html: blogPost.title.rendered }}
+          ></h1>
+          <LineSeparator className="bg-secondary mt-10" />
+        </div>
+        <div
+          className="py-8 cms-content"
+          dangerouslySetInnerHTML={{
+            __html: correctMarks(blogPost.content.rendered),
+          }}
+        ></div>
       </div>
-      <div
-        className="py-8 cms-content"
-        dangerouslySetInnerHTML={{
-          __html: correctMarks(blogPost.content.rendered),
-        }}
-      ></div>
-    </div>
+    </>
   );
 };
 

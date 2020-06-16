@@ -5,19 +5,19 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const Breadcrumbs = (props) => {
   return (
-    <div className="flex my-4">
-      <ul className="flex text-gray-500">
+    <div className="flex mb-4">
+      <ul className="flex text-gray-500 text-sm">
         {props.crumbs.map((crumb, index) => {
           return (
             <li className="flex items-center" key={index}>
               {index < props.crumbs.length - 1 ? (
                 <Link to={crumb.path}>
-                  <span className="hover:text-secondary hover:underline">
+                  <span className="hover:text-secondary hover:underline font-montbold">
                     {crumb.text}
                   </span>
                 </Link>
               ) : (
-                <span className="">{crumb.text}</span>
+                <span className="font-montbold">{crumb.text}</span>
               )}
 
               {index < props.crumbs.length - 1 && (
@@ -25,7 +25,7 @@ const Breadcrumbs = (props) => {
                   icon={faChevronRight}
                   size={"xs"}
                   style={{ color: "#dcdcdc" }}
-                  className=" mx-4 mt-1"
+                  className=" mx-4 "
                 />
               )}
             </li>
