@@ -55,7 +55,7 @@ const ContactForm = (props) => {
 
   const postContact = (name, email, message) => {
     Axios.post(
-      "http://www.api.thomasrolfe.co.uk/wp-json/contact-form-7/v1/contact-forms/62/feedback",
+      "https://www.api.thomasrolfe.co.uk/wp-json/contact-form-7/v1/contact-forms/62/feedback",
       querystring.stringify({
         "your-name": name,
         "your-email": email,
