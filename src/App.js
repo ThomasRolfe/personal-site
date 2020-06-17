@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "./styles/main.css";
 import Toolbar from "./components/navbar/Toolbar";
@@ -116,7 +116,7 @@ export default class App extends React.Component {
           <link rel="canonical" href="http://thomasrolfe.co.uk" />
           <meta name="theme-color" content="#7510f7" />
         </Helmet>
-        <Router history={history}>
+        <Router>
           <ScrollToTop />
           <Toolbar
             drawerClickHandler={this.drawerToggleClickHandler}
