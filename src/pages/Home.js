@@ -23,7 +23,7 @@ const Home = (props) => {
 
       <div className="container py-8 mx-auto grid grid-cols-1 md:grid-cols-2 min-h-800px max-h-800 px-4">
         <div className="left-text h-full flex flex-col justify-center mb-4">
-          <OnVisible className="fadeUpPrepare">
+          <div className="fadeUpPrepare">
             <div className="text-center md:text-left">
               <span className="block font-montbold font-semibold text-2xl md:text-3xl text-offblack">
                 Tom Rolfe
@@ -65,15 +65,15 @@ const Home = (props) => {
                 </ButtonCta>
               </div>
             </div>
-          </OnVisible>
+          </div>
         </div>
 
         <div className="right-image">
-          <OnVisible className="fadeDownPrepare">
+          <div className="fadeDownPrepare">
             <div className="flex w-full lg:h-full">
               <HeroAnimation />
             </div>
-          </OnVisible>
+          </div>
         </div>
       </div>
 

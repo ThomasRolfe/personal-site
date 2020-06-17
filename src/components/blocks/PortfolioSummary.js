@@ -10,7 +10,7 @@ const PortfolioSummary = (props) => {
   const evenRow = (props.index + 1) % 2 === 0;
 
   return (
-    <OnVisible className="fadeUpPrepare" percent={40}>
+    <div className="fadeUpPrepare" percent={40}>
       <div
         className={`flex flex-col lg:flex-row mb-16 my-10 lg:my-20 py-6 ${
           evenRow && "lg:flex-row-reverse"
@@ -93,7 +93,7 @@ const PortfolioSummary = (props) => {
           </div>
         </div>
       </div>
-    </OnVisible>
+    </div>
   );
 };
 
