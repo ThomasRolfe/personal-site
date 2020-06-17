@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import "./styles/main.css";
 import Toolbar from "./components/navbar/Toolbar";
@@ -20,7 +20,18 @@ import Blogs from "./dataFetch/BlogPosts";
 import { DataProvider } from "./context/DataContext";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import { Helmet } from "react-helmet";
-import Analytics from "react-router-ga";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
+
+const trackingId = "UA-120633211-4";
+const history = createBrowserHistory();
+ReactGA.initialize(trackingId);
+
+// Initialize google analytics page view tracking
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 export default class App extends React.Component {
   state = {
@@ -105,7 +116,7 @@ export default class App extends React.Component {
           <link rel="canonical" href="http://thomasrolfe.co.uk" />
           <meta name="theme-color" content="#7510f7" />
         </Helmet>
-        <Router>
+        <Router history={history}>
           <ScrollToTop />
           <Toolbar
             drawerClickHandler={this.drawerToggleClickHandler}
@@ -123,30 +134,28 @@ export default class App extends React.Component {
             <Backdrop click={this.backdropClickHandler} />
           )}
           <main className="mb-auto flex-grow">
-            <Analytics id="UA-120633211-4">
-              <Switch>
-                {this.routes.map((routes, key) => (
-                  <Route
-                    exact
-                    path={routes.path}
-                    render={(props) => {
-                      return (
-                        <routes.component
-                          scrollCoord={this.state.scrollCoord}
-                          tags={this.state.tags}
-                          loading={this.state.loading}
-                          {...props}
-                        />
-                      );
-                    }}
-                    key={key}
-                    scrollCoord={this.state.scrollCoord}
-                  />
-                ))}
-                <Route path="/" exact component={Home} />
-                <Route component={Page404} />
-              </Switch>
-            </Analytics>
+            <Switch>
+              {this.routes.map((routes, key) => (
+                <Route
+                  exact
+                  path={routes.path}
+                  render={(props) => {
+                    return (
+                      <routes.component
+                        scrollCoord={this.state.scrollCoord}
+                        tags={this.state.tags}
+                        loading={this.state.loading}
+                        {...props}
+                      />
+                    );
+                  }}
+                  key={key}
+                  scrollCoord={this.state.scrollCoord}
+                />
+              ))}
+              <Route path="/" exact component={Home} />
+              <Route component={Page404} />
+            </Switch>
           </main>
           <Footer routes={this.routes} />
         </Router>

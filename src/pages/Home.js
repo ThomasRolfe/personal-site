@@ -10,6 +10,7 @@ import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
 import { Helmet } from "react-helmet";
+import ReactGA from "react-ga";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
@@ -42,6 +43,11 @@ const Home = (props) => {
                 <div
                   onClick={() => {
                     ScrollToRef(learnMoreRef);
+
+                    ReactGA.event({
+                      category: "Button Click",
+                      action: "User pressed the learn more button on home page",
+                    });
                   }}
                 >
                   <ButtonCta
