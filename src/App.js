@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import "./App.css";
 import "./styles/main.css";
 import Toolbar from "./components/navbar/Toolbar";
@@ -13,34 +13,15 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Page404 from "./pages/Page404";
 import Footer from "./components/Footer";
-import Tags from "./dataFetch/Tags";
-import Portfolios from "./dataFetch/Portfolios";
 import PortfolioPost from "./pages/PortfolioPost";
-import Blogs from "./dataFetch/BlogPosts";
-import { DataProvider } from "./context/DataContext";
 import ScrollToTop from "./components/helpers/ScrollToTop";
-import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
-import { createBrowserHistory } from "history";
 
 const trackingId = "UA-120633211-4";
-const history = createBrowserHistory();
-ReactGA.initialize(trackingId);
 
-// Initialize google analytics page view tracking
-history.listen((location) => {
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
-});
-
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     sideDrawerOpen: false,
-    loading: true,
-    tags: [],
-    blogTags: [],
-    portfolios: [],
-    blogs: [],
   };
 
   routes = [
@@ -68,27 +49,9 @@ export default class App extends React.Component {
     { routeName: "contact", path: "/contact", component: Contact, menu: true },
   ];
 
-  componentDidMount() {
-    Promise.all([Tags(), Portfolios(), Blogs()]).then((responses) => {
-      this.setState({
-        tags: responses[0].data.reduce((obj, item) => {
-          obj[item.id] = item.name;
-          return obj;
-        }, {}),
-        blogTags: Array.from(
-          new Set(
-            responses[2].data
-              .map((blogs) => {
-                return blogs.tags;
-              })
-              .flat()
-          )
-        ),
-        portfolios: responses[1].data,
-        blogs: responses[2].data,
-        loading: false,
-      });
-    });
+  componentDidUpdate() {
+    ReactGA.initialize(trackingId);
+    ReactGA.pageview(this.props.location.pathname);
   }
 
   drawerToggleClickHandler = () => {
@@ -109,57 +72,51 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <DataProvider value={this.state}>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Tom Rolfe | Full Stack Web Developer</title>
-          <link rel="canonical" href="http://thomasrolfe.co.uk" />
-          <meta name="theme-color" content="#7510f7" />
-        </Helmet>
-        <Router>
-          <ScrollToTop />
-          <Toolbar
-            drawerClickHandler={this.drawerToggleClickHandler}
-            siteRoutes={this.routes}
-          />
+      <>
+        <ScrollToTop />
+        <Toolbar
+          drawerClickHandler={this.drawerToggleClickHandler}
+          siteRoutes={this.routes}
+        />
 
-          <SideDrawer
-            show={this.state.sideDrawerOpen}
-            closeDrawer={this.closeDrawer}
-            siteRoutes={this.routes}
-            onClick={this.closeDrawer}
-          />
+        <SideDrawer
+          show={this.state.sideDrawerOpen}
+          closeDrawer={this.closeDrawer}
+          siteRoutes={this.routes}
+          onClick={this.closeDrawer}
+        />
 
-          {this.state.sideDrawerOpen && (
-            <Backdrop click={this.backdropClickHandler} />
-          )}
-          <main className="mb-auto flex-grow">
-            <Switch>
-              {this.routes.map((routes, key) => (
-                <Route
-                  exact
-                  path={routes.path}
-                  render={(props) => {
-                    return (
-                      <routes.component
-                        scrollCoord={this.state.scrollCoord}
-                        tags={this.state.tags}
-                        loading={this.state.loading}
-                        {...props}
-                      />
-                    );
-                  }}
-                  key={key}
-                  scrollCoord={this.state.scrollCoord}
-                />
-              ))}
-              <Route path="/" exact component={Home} />
-              <Route component={Page404} />
-            </Switch>
-          </main>
-          <Footer routes={this.routes} />
-        </Router>
-      </DataProvider>
+        {this.state.sideDrawerOpen && (
+          <Backdrop click={this.backdropClickHandler} />
+        )}
+        <main className="mb-auto flex-grow">
+          <Switch>
+            {this.routes.map((routes, key) => (
+              <Route
+                exact
+                path={routes.path}
+                render={(props) => {
+                  return (
+                    <routes.component
+                      scrollCoord={this.state.scrollCoord}
+                      tags={this.state.tags}
+                      loading={this.state.loading}
+                      {...props}
+                    />
+                  );
+                }}
+                key={key}
+                scrollCoord={this.state.scrollCoord}
+              />
+            ))}
+            <Route path="/" exact component={Home} />
+            <Route component={Page404} />
+          </Switch>
+        </main>
+        <Footer routes={this.routes} />
+      </>
     );
   }
 }
+
+export default withRouter(App);

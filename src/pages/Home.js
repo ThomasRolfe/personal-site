@@ -10,7 +10,7 @@ import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
 import { Helmet } from "react-helmet";
-import ReactGA from "react-ga";
+import TrackButtonClicked from "../analytics/TrackButtonClicked";
 
 const Home = (props) => {
   const learnMoreRef = React.createRef();
@@ -43,11 +43,9 @@ const Home = (props) => {
                 <div
                   onClick={() => {
                     ScrollToRef(learnMoreRef);
-
-                    ReactGA.event({
-                      category: "Button Click",
-                      action: "User pressed the learn more button on home page",
-                    });
+                    TrackButtonClicked(
+                      "User pressed the learn more button on home page"
+                    );
                   }}
                 >
                   <ButtonCta
@@ -66,6 +64,11 @@ const Home = (props) => {
                   className="mt-4 lg:mt-0 lg:ml-2 w-full py-3 px-16"
                   path="/contact"
                   secondary
+                  onClick={() => {
+                    TrackButtonClicked(
+                      "User pressed the contact button on home page"
+                    );
+                  }}
                 >
                   Contact
                 </ButtonCta>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ButtonCta from "../ButtonCta";
 import Axios from "axios";
 import querystring from "querystring";
+import TrackContactSubmitted from "../../analytics/TrackContactSubmitted";
 
 const ContactForm = (props) => {
   const [name, setName] = useState("");
@@ -69,6 +70,7 @@ const ContactForm = (props) => {
         setName("");
         setEmail("");
         setMessage("");
+        TrackContactSubmitted();
       })
       .catch((e) => {
         errorModal(
