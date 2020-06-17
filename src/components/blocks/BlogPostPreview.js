@@ -8,7 +8,7 @@ const BlogPostPreview = (props) => {
   const postDate = moment(props.date);
 
   return (
-    <div className="fadeUpPrepare">
+    <div className="">
       <div
         className={`shadow-md rounded-md bg-white py-6 px-8 h-full flex flex-col ${props.className}`}
       >
