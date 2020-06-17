@@ -9,7 +9,6 @@ import OnVisible from "react-on-visible";
 import HomeBio from "../components/blocks/HomeBio";
 import ProcessBanner from "../components/blocks/ProcessBanner";
 import TechBanner from "../components/blocks/TechBanner";
-
 import { Helmet } from "react-helmet";
 
 const Home = (props) => {

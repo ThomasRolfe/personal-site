@@ -20,6 +20,7 @@ import Blogs from "./dataFetch/BlogPosts";
 import { DataProvider } from "./context/DataContext";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import { Helmet } from "react-helmet";
+import Analytics from "react-router-ga";
 
 export default class App extends React.Component {
   state = {
@@ -122,28 +123,30 @@ export default class App extends React.Component {
             <Backdrop click={this.backdropClickHandler} />
           )}
           <main className="mb-auto flex-grow">
-            <Switch>
-              {this.routes.map((routes, key) => (
-                <Route
-                  exact
-                  path={routes.path}
-                  render={(props) => {
-                    return (
-                      <routes.component
-                        scrollCoord={this.state.scrollCoord}
-                        tags={this.state.tags}
-                        loading={this.state.loading}
-                        {...props}
-                      />
-                    );
-                  }}
-                  key={key}
-                  scrollCoord={this.state.scrollCoord}
-                />
-              ))}
-              <Route path="/" exact component={Home} />
-              <Route component={Page404} />
-            </Switch>
+            <Analytics id="UA-120633211-4" debug>
+              <Switch>
+                {this.routes.map((routes, key) => (
+                  <Route
+                    exact
+                    path={routes.path}
+                    render={(props) => {
+                      return (
+                        <routes.component
+                          scrollCoord={this.state.scrollCoord}
+                          tags={this.state.tags}
+                          loading={this.state.loading}
+                          {...props}
+                        />
+                      );
+                    }}
+                    key={key}
+                    scrollCoord={this.state.scrollCoord}
+                  />
+                ))}
+                <Route path="/" exact component={Home} />
+                <Route component={Page404} />
+              </Switch>
+            </Analytics>
           </main>
           <Footer routes={this.routes} />
         </Router>
