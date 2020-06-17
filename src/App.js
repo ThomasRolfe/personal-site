@@ -123,7 +123,7 @@ export default class App extends React.Component {
             <Backdrop click={this.backdropClickHandler} />
           )}
           <main className="mb-auto flex-grow">
-            <Analytics id="UA-120633211-4" debug>
+            <Analytics id="UA-120633211-4">
               <Switch>
                 {this.routes.map((routes, key) => (
                   <Route
