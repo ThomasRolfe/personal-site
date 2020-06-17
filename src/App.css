@@ -92,7 +92,7 @@ body {
   }
 }
 
-#site-planning {
+#site-planning2 {
   animation-duration: 3s;
   animation-name: animatePage;
   animation-iteration-count: infinite;
@@ -101,7 +101,7 @@ body {
   /* mix-blend-mode: screen; */
 }
 
-#site-code {
+#site-code2 {
   animation-duration: 3s;
   animation-name: animatePage;
   animation-iteration-count: infinite;
@@ -111,7 +111,7 @@ body {
   /* mix-blend-mode: screen; */
 }
 
-#site-back {
+#site-back2 {
   animation-duration: 3s;
   animation-name: animatePage;
   animation-iteration-count: infinite;
@@ -121,7 +121,7 @@ body {
   /* mix-blend-mode: screen; */
 }
 
-#site-front {
+#site-front2 {
   animation-duration: 3s;
   animation-name: animatePage;
   animation-iteration-count: infinite;

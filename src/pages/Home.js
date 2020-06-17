@@ -72,7 +72,7 @@ const Home = (props) => {
         <div className="right-image">
           <OnVisible className="fadeDownPrepare">
             <div className="flex w-full lg:h-full">
-              {/* <HeroAnimation /> */}
+              <HeroAnimation />
             </div>
           </OnVisible>
         </div>
