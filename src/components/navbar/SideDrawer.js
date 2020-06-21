@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./SideDrawer.css";
 import { Swipeable } from "react-swipeable";
 import SiteLogo from "./SiteLogo";
+import TrackButtonClicked from "../../analytics/TrackButtonClicked";
 
 const sideDrawer = (props) => {
   return (
@@ -29,7 +30,12 @@ const sideDrawer = (props) => {
                   aria-label={route.routeName}
                   to={route.path}
                   className="hover:text-secondary w-full h-full block p-5 capitalize font-montbold font-bold"
-                  onClick={props.onClick}
+                  onClick={() => {
+                    TrackButtonClicked(
+                      `${route.routeName} clicked on mobile nav`
+                    );
+                    props.onClick();
+                  }}
                 >
                   {route.routeName}
                 </Link>

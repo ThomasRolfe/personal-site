@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DrawerToggleButton from "./DrawerToggle";
 import SiteLogo from "./SiteLogo";
+import TrackButtonClicked from "../../analytics/TrackButtonClicked";
 
 const toolbar = (props) => (
   <header className="w-full bg-white h-16 px-4">
@@ -24,6 +25,11 @@ const toolbar = (props) => (
                   aria-label={route.routeName}
                   to={route.path}
                   className="hover:text-secondary capitalize font-montbold font-bold text-sm"
+                  onClick={() => {
+                    TrackButtonClicked(
+                      `${route.routeName} clicked on desktop nav`
+                    );
+                  }}
                 >
                   {route.routeName}
                 </Link>
